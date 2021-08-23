@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_121358) do
+ActiveRecord::Schema.define(version: 2021_08_23_125025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "flights", force: :cascade do |t|
+    t.date "date"
+    t.string "departure"
+    t.string "destination"
+    t.string "flight_number"
+    t.string "facemask_flight"
+    t.string "facemask_destination"
+    t.string "test_required"
+    t.string "vaccination_requirment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.bigint "flight_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flight_id"], name: "index_trips_on_flight_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +45,13 @@ ActiveRecord::Schema.define(version: 2021_08_23_121358) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phonenumber"
+    t.string "name"
+    t.string "fullvaccinated"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "trips", "flights"
+  add_foreign_key "trips", "users"
 end
