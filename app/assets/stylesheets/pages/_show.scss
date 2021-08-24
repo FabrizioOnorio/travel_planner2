@@ -1,0 +1,46 @@
+@import "home";
+
+.country_overview {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 30px;
+grid-row-gap: 30px;
+}
+
+.icons_overview {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 10px;
+grid-row-gap: 10px;
+}
+
+.font_text {
+  font-family: Abhaya Libre;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  background: #83D644;
+  border-radius: 7px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.img-show-page {
+  width: 38px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.font_h2 {
+  font-family: Abhaya Libre;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
