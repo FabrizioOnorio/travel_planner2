@@ -51,8 +51,8 @@ puts "create flights"
 # flight_1
 flight_1 = Flight.create(
   date: DateTime.new(2009, 9, 19),
-  departure: "Milan",
-  destination: "Barcelona",
+  departure: "Italy",
+  destination: "Spain",
   flight_number: "DY445",
   facemask_flight: "N95",
   facemask_destination: "No facemask required",
@@ -62,8 +62,8 @@ flight_1 = Flight.create(
 # flight_2
 flight_2 = Flight.create(
   date: DateTime.new(2009, 9, 20),
-  departure: "Barcelona",
-  destination: "Milan",
+  departure: "Spain",
+  destination: "Italy",
   flight_number: "DY450",
   facemask_flight: "N95",
   facemask_destination: "No facemask required",
@@ -73,8 +73,8 @@ flight_2 = Flight.create(
 # flight_3
 flight_3 = Flight.create(
   date: DateTime.new(2009, 9, 15),
-  departure: "Berlin",
-  destination: "Paris",
+  departure: "Germany",
+  destination: "France",
   flight_number: "LH225",
   facemask_flight: "Surgical Mask",
   facemask_destination: "facemask required",
@@ -84,8 +84,8 @@ flight_3 = Flight.create(
 # flight_4
 flight_4 = Flight.create(
   date: DateTime.new(2009, 9, 25),
-  departure: "Paris",
-  destination: "Berlin",
+  departure: "France",
+  destination: "Germany",
   flight_number: "LH403",
   facemask_flight: "N95",
   facemask_destination: "No facemask required",
@@ -95,8 +95,8 @@ flight_4 = Flight.create(
 # flight_5
 flight_5 = Flight.create(
   date: DateTime.new(2009, 9, 18),
-  departure: "Oslo",
-  destination: "Brussels",
+  departure: "Norway",
+  destination: "Belgium",
   flight_number: "TD444",
   facemask_flight: "Surgical Mark",
   facemask_destination: "Facemask required",
@@ -106,8 +106,8 @@ flight_5 = Flight.create(
 # flight_6
 flight_6 = Flight.create(
   date: DateTime.new(2009, 9, 30),
-  departure: "Brussels",
-  destination: "Oslo",
+  departure: "Belgium",
+  destination: "Norway",
   flight_number: "TD607",
   facemask_flight: "Surgical Mask",
   facemask_destination: "No facemask required",
@@ -117,8 +117,8 @@ flight_6 = Flight.create(
 # flight_7
 flight_7 = Flight.create(
   date: DateTime.new(2009, 9, 19),
-  departure: "London",
-  destination: "Lisbon",
+  departure: "United Kingdom",
+  destination: "Portugal",
   flight_number: "DY123",
   facemask_flight: "N95",
   facemask_destination: "No facemask required",
@@ -128,8 +128,8 @@ flight_7 = Flight.create(
 # flight_8
 flight_8 = Flight.create(
   date: DateTime.new(2009, 9, 19),
-  departure: "Lisbon",
-  destination: "London",
+  departure: "Portugal",
+  destination: "United Kingdom",
   flight_number: "DY321",
   facemask_flight: "N95",
   facemask_destination: "No facemask required",
