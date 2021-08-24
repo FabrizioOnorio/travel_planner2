@@ -5,3 +5,162 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# step_one: destroy all seeds
+puts "Destroying seeds"
+Trip.destroy_all
+Flight.destroy_all
+User.destroy_all
+puts "Seeds destroyed ✅"
+
+puts "Create users"
+# user_1
+user_1 = User.create(
+  email: "luke@luke.com",
+  password: "123456",
+  name: "Luke Wikstan",
+  phonenumber: "473923923",
+  fullvaccinated: "fully vaccinated"
+)
+# user_2
+user_2 = User.create(
+  email: "mike@mike.com",
+  password: "123456",
+  name: "Mike Lu",
+  phonenumber: "473923984",
+  fullvaccinated: "half vaccinated"
+)
+# user_3
+user_3 = User.create(
+  email: "matt@matt.com",
+  password: "123456",
+  name: "Matt Bill",
+  phonenumber: "473923983",
+  fullvaccinated: "not vaccinated"
+)
+# user_4
+user_4 = User.create(
+  email: "linn@linn.com",
+  password: "123456",
+  name: "Linn Moi",
+  phonenumber: "473923567",
+  fullvaccinated: "fully vaccinated"
+)
+puts "done with users ✅"
+puts "create flights"
+# flight_1
+flight_1 = Flight.create(
+  date: DateTime.new(2009, 9, 19),
+  departure: "Milan",
+  destination: "Barcelona",
+  flight_number: "DY445",
+  facemask_flight: "N95",
+  facemask_destination: "No facemask required",
+  test_required: "PCR test 48 hours",
+  vaccination_requirment: "Fully Vaccinated"
+)
+# flight_2
+flight_2 = Flight.create(
+  date: DateTime.new(2009, 9, 20),
+  departure: "Barcelona",
+  destination: "Milan",
+  flight_number: "DY450",
+  facemask_flight: "N95",
+  facemask_destination: "No facemask required",
+  test_required: "PCR test 72 hours",
+  vaccination_requirment: "Fully Vaccinated"
+)
+# flight_3
+flight_3 = Flight.create(
+  date: DateTime.new(2009, 9, 15),
+  departure: "Berlin",
+  destination: "Paris",
+  flight_number: "LH225",
+  facemask_flight: "Surgical Mask",
+  facemask_destination: "facemask required",
+  test_required: "PCR test 48 hours",
+  vaccination_requirment: "Half Vaccinated"
+)
+# flight_4
+flight_4 = Flight.create(
+  date: DateTime.new(2009, 9, 25),
+  departure: "Paris",
+  destination: "Berlin",
+  flight_number: "LH403",
+  facemask_flight: "N95",
+  facemask_destination: "No facemask required",
+  test_required: "PCR test 72 hours",
+  vaccination_requirment: "Fully Vaccinated"
+)
+# flight_5
+flight_5 = Flight.create(
+  date: DateTime.new(2009, 9, 18),
+  departure: "Oslo",
+  destination: "Brussels",
+  flight_number: "TD444",
+  facemask_flight: "Surgical Mark",
+  facemask_destination: "Facemask required",
+  test_required: "PCR test 48 hours",
+  vaccination_requirment: "Fully Vaccinated"
+)
+# flight_6
+flight_6 = Flight.create(
+  date: DateTime.new(2009, 9, 30),
+  departure: "Brussels",
+  destination: "Oslo",
+  flight_number: "TD607",
+  facemask_flight: "Surgical Mask",
+  facemask_destination: "No facemask required",
+  test_required: "PCR test 48 hours",
+  vaccination_requirment: "Fully Vaccinated"
+)
+# flight_7
+flight_7 = Flight.create(
+  date: DateTime.new(2009, 9, 19),
+  departure: "London",
+  destination: "Lisbon",
+  flight_number: "DY123",
+  facemask_flight: "N95",
+  facemask_destination: "No facemask required",
+  test_required: "PCR test 24 hours",
+  vaccination_requirment: "Partly Vaccinated"
+)
+# flight_8
+flight_8 = Flight.create(
+  date: DateTime.new(2009, 9, 19),
+  departure: "Lisbon",
+  destination: "London",
+  flight_number: "DY321",
+  facemask_flight: "N95",
+  facemask_destination: "No facemask required",
+  test_required: "PCR test 72 hours",
+  vaccination_requirment: "Fully Vaccinated"
+)
+puts "done withg flights ✅"
+puts "create trips"
+# trip_1
+Trip.create(
+  user: user_1,
+  inbound_id: flight_1,
+  outbound_id: flight_2
+)
+# trip_2
+Trip.create(
+  user: user_2,
+  inbound_id: flight_3,
+  outbound_id: flight_4
+)
+# trip_3
+Trip.create(
+  user: user_3,
+  inbound_id: flight_5,
+  outbound_id: flight_6
+)
+# trip_4
+Trip.create(
+  user: user_4,
+  inbound_id: flight_7,
+  outbound_id: flight_8
+)
+puts "done creating trips ✅"
+puts "done with the seeds ✅✅✅"
