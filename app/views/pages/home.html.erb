@@ -9,17 +9,26 @@
             <p>Welcome to <strong>Traveld</strong>, We help you travel worry-free accross Europe, all you have to do is to enter your trip details to get all the needed information about the Corona restrictions through the visited countries </p>
             <img src="https://i.ibb.co/1rFDL7R/map.png" alt="World map">
         </div>
-        <a href="#" class="main-add-map"><i class="fas fa-plus"></i> Add new map</a>
+        <a href="#" class="main-add-map"><i class="fas fa-plus"></i>Add new map</a>
     </div>
     <div class="bottom-bar">
-        <div class="bottom-button"><a href="/" class="active"><i class="fas fa-home"></i></a>
-            <p class="active">Home</p>
-        </div>
-        <div class="bottom-button"><a href="/trips.html"><i class="fas fa-plane"></i></a>
-            <p>Trips</p>
-        </div>
-        <div class="bottom-button"><a href="/profile.html"><i class="fas fa-user-circle"></i></a>
-            <p>Profile</p>
-        </div>
+      <div class="bottom-button">
+        <%= link_to root_path, class: "active" do %>
+        <i class='fas fa-home'></i>
+        <p class="active">Home</p>
+        <% end %>
+      </div>
+      <div class="bottom-button">
+        <%= link_to "/" do %>
+        <i class='fas fa-plane'></i>
+        <p>Trips</p>
+        <% end %>
+      </div>
+      <div class="bottom-button">
+        <%= link_to profile_path do %>
+        <i class='fas fa-user-circle'></i>
+        <p>Profile</p>
+        <% end %>
+      </div>
     </div>
 </div>
