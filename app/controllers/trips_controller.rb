@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+
   def new
     @trip = Trip.new
   end
@@ -17,5 +18,8 @@ class TripsController < ApplicationController
 
   def flight_params
     params.require(:flight).permit(:date, :departure, :destination, :flight_number)
+
+  def index
+
   end
 end
