@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_125025) do
+ActiveRecord::Schema.define(version: 2021_08_24_114935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,11 @@ ActiveRecord::Schema.define(version: 2021_08_23_125025) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "inbound_id", null: false
+    t.bigint "outbound_id", null: false
     t.index ["flight_id"], name: "index_trips_on_flight_id"
+    t.index ["inbound_id"], name: "index_trips_on_inbound_id"
+    t.index ["outbound_id"], name: "index_trips_on_outbound_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -53,5 +57,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_125025) do
   end
 
   add_foreign_key "trips", "flights"
+  add_foreign_key "trips", "flights", column: "inbound_id"
+  add_foreign_key "trips", "flights", column: "outbound_id"
   add_foreign_key "trips", "users"
 end

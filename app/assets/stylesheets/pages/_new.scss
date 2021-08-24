@@ -1,0 +1,43 @@
+.container {
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.form .button {
+  margin-left: 90px;
+  height: 50px;
+  margin-top: 220px;
+  background-color: #23786B;
+  border-radius: 20px;
+  width: 330px;
+  color: white!important;
+  align-items: center;
+  box-shadow: 0px 0px 6px #888888;
+}
+
+.form {
+  margin: 20px;
+}
+
+.input-class {
+  border: 0.5px solid #2D70A8;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.cancel-link {
+  color: #DF5A34;
+  position: relative;
+  left: 22px;
+  bottom: 40px;
+}
+
+.top-mark {
+  text-align: center;
+  position: relative;
+  bottom: 15px;
+}
