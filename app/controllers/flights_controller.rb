@@ -17,13 +17,19 @@ class FlightsController < ApplicationController
     end
   end
 
+  def show
+    @flight = Flight.find(params[:id])
+  end
+
   private
 
   def flight_params
     params.require(:flight).permit(:date, :departure, :destination, :flight_number)
   end
 
+
   def return_flight_params
     params.require(:flight).permit(:return_date, :departure, :destination, :flight_number)
   end
+
 end
