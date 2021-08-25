@@ -16,9 +16,14 @@ class TripsController < ApplicationController
     end
   end
 
+  def index
+  end
+
   private
 
   def trips_params
     params.require(:trip).permit(:inbound_id, :outbound_id, :user_id, :flight_id)
   end
+
+
 end
