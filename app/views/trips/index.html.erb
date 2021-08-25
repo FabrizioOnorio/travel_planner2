@@ -1,0 +1,9 @@
+<h1>Trips</h1>
+<div class="cards">
+  <% @trips.each do |t| %>
+  <div class="card">
+    <%= "Trip to #{}" %>
+    <%=  %>
+  </div>
+  <% end %>
+</div>

@@ -2,3 +2,17 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+body {
+  background-color: white;
+}
+
+.cards {
+  justify-content: center;
+}
+
+.card {
+  width: 345px;
+  height: 148px;
+  border-radius: 10px;
+}

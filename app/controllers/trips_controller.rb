@@ -1,4 +1,7 @@
 class TripsController < ApplicationController
+  def index
+    @trips = Trip.all
+  end
 
   def new
     @flight = Flight.new
@@ -16,15 +19,13 @@ class TripsController < ApplicationController
     end
   end
 
-  def index
-  end
 
-  def index
-  end
+
 
   def show
     @trip = Trip.find(params[:id])
   end
+
 
   private
 
@@ -33,6 +34,4 @@ class TripsController < ApplicationController
     params.require(:trip).permit(:inbound_id, :outbound_id, :user_id, :flight_id)
 
   end
-
-
 end
