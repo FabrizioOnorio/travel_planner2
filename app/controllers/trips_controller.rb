@@ -14,12 +14,14 @@ class TripsController < ApplicationController
     @me = current_user
   end
 
+  def index
+  end
+
   private
 
   def flight_params
     params.require(:flight).permit(:date, :departure, :destination, :flight_number)
-
-  def index
-
   end
+
+
 end

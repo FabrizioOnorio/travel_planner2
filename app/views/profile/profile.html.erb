@@ -4,15 +4,16 @@
           <p>Profile</p>
         </div>
         <img src="https://i.ibb.co/4g4pVGq/profile.png" alt="Profile photo">
-        <p class="username">Name</p>
+        <p class="username"><%= @user.name %></p>
         <div class="user-info">
             <p>Email</p>
-            <h3>name@example.com</h3>
+            <h3><% @user.email %></h3>
             <p>Country</p>
             <h3>Germany</h3>
             <p>Vaccination status</p>
             <h3>Fully vaccinated</h3>
         </div>
+        <% raise %>
     </div>
     <div class="bottom-bar">
         <div class="bottom-button"><a href="/"><i class="fas fa-home"></i></a>
