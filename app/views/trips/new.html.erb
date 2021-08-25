@@ -12,11 +12,11 @@
     </div>
 
   <div class="form">
-    <%= simple_form_for @trip do |f| %>
+    <%= simple_form_for [ @flight ] do |f| %>
       <%= f.input :date, input_html: { class: "input-class" }, label_html: { class: "nice-class" } %>
+      <%= f.input :return_date, as: :date, input_html: { class: "input-class" }, label_html: { class: "nice-class" } %>
       <%= f.input :departure, label: 'From:', input_html: { class: "input-class" }, label_html: { class: "nice-class" } %>
       <%= f.input :destination, label: 'To:', input_html: { class: "input-class" }, label_html: { class: "nice-class" } %>
-      <%= f.input :flight_number, label: 'Flight', input_html: { class: "input-class" }, label_html: { class: "nice-class" } %>
       <%= f.button :submit, 'Next', class:"button" %>
     <% end %>
   </div>
