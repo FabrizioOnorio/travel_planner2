@@ -141,26 +141,8 @@ puts "create trips"
 # trip_1
 Trip.create(
   user: user_1,
-  inbound_id: flight_1,
-  outbound_id: flight_2
-)
-# trip_2
-Trip.create(
-  user: user_2,
-  inbound_id: flight_3,
-  outbound_id: flight_4
-)
-# trip_3
-Trip.create(
-  user: user_3,
-  inbound_id: flight_5,
-  outbound_id: flight_6
-)
-# trip_4
-Trip.create(
-  user: user_4,
-  inbound_id: flight_7,
-  outbound_id: flight_8
+  inbound_id: flight_1.id,
+  outbound_id: flight_2.id
 )
 puts "done creating trips ✅"
 puts "done with the seeds ✅✅✅"
