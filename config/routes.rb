@@ -9,5 +9,4 @@ Rails.application.routes.draw do
 
   get "/profile", to: 'profile#profile'
   get "/trips", to: 'trips#index'
-
 end
