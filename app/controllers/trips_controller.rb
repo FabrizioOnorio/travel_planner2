@@ -1,26 +1,37 @@
 class TripsController < ApplicationController
 
   def new
+    @flight = Flight.new
     @trip = Trip.new
   end
 
   def create
-    @trip = Trip.new(flight_params)
+    @flight = Flight.new(flight_params)
+    @trip = Trip.new(trips_params)
+    @trip.user = current_user
     if @trip.save
       redirect_to @flight, notice: 'Flight was successfully created'
     else
       render :new
     end
-    @me = current_user
   end
 
   def index
   end
 
+  def index
+  end
+
+  def show
+    @trip = Trip.find(params[:id])
+  end
+
   private
 
-  def flight_params
-    params.require(:flight).permit(:date, :departure, :destination, :flight_number)
+
+  def trips_params
+    params.require(:trip).permit(:inbound_id, :outbound_id, :user_id, :flight_id)
+
   end
 
 
