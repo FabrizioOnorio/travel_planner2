@@ -8,5 +8,5 @@ class PagesController < ApplicationController
   def profile
 
   end
-er
+
 end
