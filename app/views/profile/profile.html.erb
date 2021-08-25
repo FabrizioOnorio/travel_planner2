@@ -3,17 +3,22 @@
         <div id="upper-bar-main" id="home" >
           <p>Profile</p>
         </div>
-        <img src="https://i.ibb.co/4g4pVGq/profile.png" alt="Profile photo">
-        <p class="username"><%= @user.name %></p>
-        <div class="user-info">
-            <p>Email</p>
-            <h3><% @user.email %></h3>
-            <p>Country</p>
-            <h3>Germany</h3>
-            <p>Vaccination status</p>
-            <h3>Fully vaccinated</h3>
+        <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill, class: "profile-img" %>
+        <p class="username">@<%= @user.name %></p>
+            <div class="user-info">
+            <div class="inf">
+                <p>Email</p>
+                <h3><%= @user.email %></h3>
+            </div>
+            <div class="inf">
+                <p>Country</p>
+                <h3>Germany</h3>
+            </div>
+            <div class="inf">
+                <p>Vaccination status</p>
+                <h3>Fully vaccinated</h3>
+            </div>
         </div>
-        <% raise %>
     </div>
     <div class="bottom-bar">
         <div class="bottom-button"><a href="/"><i class="fas fa-home"></i></a>
