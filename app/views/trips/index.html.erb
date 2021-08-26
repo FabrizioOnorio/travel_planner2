@@ -1,12 +1,26 @@
 <h1>Trips</h1>
 <div class="cards">
   <% @trips.each do |t| %>
-  <div class="card">
-    <p class="where"><%= "Trip to Sweden" %></p>
-    <p class="when"><%= "25.08.2021 - 25.08.2021" %></p>
-      <%= image_tag("index-arrow.jpg", class:"arrow-image") %>
-      <%= image_tag("triangle-index.png", class:"triangle-image") %>
-      <%= image_tag("triangle-index.png", class:"triangle-image") %>
-  </div>
+    <%= link_to (trip_path(t)) do %>
+      <div class="card">
+        <p class="where"><%= "Trip to #{t.flights[0].destination}" %></p>
+        <p class="when"><%= "#{t.flights[0].date} - #{t.flights[0].date}" %></p>
+        <div class="arrows">
+          <div class="flags">
+            <% c = ISO3166::Country.find_country_by_name("#{t.flights[0].departure}") %>
+              <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="flag">
+            <%= image_tag("triangle-index.png", class:"triangle-image") %>
+            <% c = ISO3166::Country.find_country_by_name("#{t.flights[0].destination}") %>
+              <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="flag">
+            <%= image_tag("triangle-index.png", class:"triangle-image") %>
+            <% c = ISO3166::Country.find_country_by_name("#{t.flights[0].departure}") %>
+              <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="flag">
+          </div>
+          <div class="arrow">
+          <%= image_tag("index-arrow.jpg", class:"arrow-image") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
