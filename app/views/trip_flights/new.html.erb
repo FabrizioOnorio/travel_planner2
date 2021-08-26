@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+
+      <%= simple_form_for [@trip, @trip_flight] do |f| %>
+      <%= f.input :flight, collection: Flight.all, input_html: { multiple: true, class: 'multiple-select' }, include_hidden: false %>
+      <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select %>
+      <%= f.submit "Add flight", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
