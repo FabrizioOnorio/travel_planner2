@@ -1,3 +1,4 @@
+require "pry-byebug"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -49,7 +50,7 @@ user_4 = User.create(
 puts "done with users ✅"
 puts "create flights"
 # flight_1
-flight_1 = Flight.create(
+flight_1 = Flight.create!(
   date: DateTime.new(2009, 9, 19),
   departure: "Italy",
   destination: "Spain",
@@ -60,7 +61,8 @@ flight_1 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_2
-flight_2 = Flight.create(
+puts "test"
+flight_2 = Flight.create!(
   date: DateTime.new(2009, 9, 20),
   departure: "Spain",
   destination: "Italy",
@@ -71,7 +73,7 @@ flight_2 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_3
-flight_3 = Flight.create(
+flight_3 = Flight.create!(
   date: DateTime.new(2009, 9, 15),
   departure: "Germany",
   destination: "France",
@@ -82,7 +84,7 @@ flight_3 = Flight.create(
   vaccination_requirment: "Half Vaccinated"
 )
 # flight_4
-flight_4 = Flight.create(
+flight_4 = Flight.create!(
   date: DateTime.new(2009, 9, 25),
   departure: "France",
   destination: "Germany",
@@ -93,7 +95,7 @@ flight_4 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_5
-flight_5 = Flight.create(
+flight_5 = Flight.create!(
   date: DateTime.new(2009, 9, 18),
   departure: "Norway",
   destination: "Belgium",
@@ -104,7 +106,7 @@ flight_5 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_6
-flight_6 = Flight.create(
+flight_6 = Flight.create!(
   date: DateTime.new(2009, 9, 30),
   departure: "Belgium",
   destination: "Norway",
@@ -115,7 +117,7 @@ flight_6 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_7
-flight_7 = Flight.create(
+flight_7 = Flight.create!(
   date: DateTime.new(2009, 9, 19),
   departure: "United Kingdom",
   destination: "Portugal",
@@ -126,7 +128,7 @@ flight_7 = Flight.create(
   vaccination_requirment: "Partly Vaccinated"
 )
 # flight_8
-flight_8 = Flight.create(
+flight_8 = Flight.create!(
   date: DateTime.new(2009, 9, 19),
   departure: "Portugal",
   destination: "United Kingdom",
@@ -139,28 +141,24 @@ flight_8 = Flight.create(
 puts "done withg flights ✅"
 puts "create trips"
 # trip_1
-Trip.create(
-  user: user_1,
-  inbound_id: flight_1.id,
-  outbound_id: flight_2.id
+binding.pry
+trip_1 = Trip.create(
+  user: user_1
+)
+TripFlight.create(
+  trip: trip_1, flight: flight_1, flight_type: "outbound"
 )
 # trip_2
-Trip.create(
-  user: user_2,
-  inbound_id: flight_3.id,
-  outbound_id: flight_4.id
+trip_2 = Trip.create(
+  user: user_2
 )
 # trip_3
-Trip.create(
-  user: user_3,
-  inbound_id: flight_5.id,
-  outbound_id: flight_6.id
+trip_3 = Trip.create(
+  user: user_3
 )
 # trip_4
-Trip.create(
-  user: user_4,
-  inbound_id: flight_7.id,
-  outbound_id: flight_8.id
+trip_4 = Trip.create(
+  user: user_4
 )
 puts "done creating trips ✅"
 puts "done with the seeds ✅✅✅"
