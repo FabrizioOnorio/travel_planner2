@@ -8,7 +8,9 @@ require "pry-byebug"
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # step_one: destroy all seeds
+
 puts "Destroying seeds"
+TripFlight.destroy_all
 Trip.destroy_all
 Flight.destroy_all
 User.destroy_all
@@ -141,12 +143,14 @@ flight_8 = Flight.create!(
 puts "done withg flights ✅"
 puts "create trips"
 # trip_1
-binding.pry
 trip_1 = Trip.create(
   user: user_1
 )
 TripFlight.create(
   trip: trip_1, flight: flight_1, flight_type: "outbound"
+)
+TripFlight.create(
+  trip: trip_1, flight: flight_2, flight_type: "outbound"
 )
 # trip_2
 trip_2 = Trip.create(

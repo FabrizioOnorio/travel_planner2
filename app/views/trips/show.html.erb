@@ -1,44 +1,32 @@
+<% @trip.flights.each do |flight| %>
 <div class="container-show">
+
   <div class="show-card">
     <!-- date only is hard coded-->
     <div class="date">
-      <p><%=@flight.date%></p>
+      <p><%=flight.date%></p>
       <%=  %>
     </div>
     <!-- flags and the name of the country -> change this to a flexbox-->
-
     <div class="flexbox-panel">
       <div class="flex-item">
-        <% c = ISO3166::Country.find_country_by_name(@trip.inbound_id.departure) %>
+        <% c = ISO3166::Country.find_country_by_name(flight.departure) %>
         <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-small">
-        <p><%= @trip.inbound_id.departure %></p>
+        <p><%= flight.departure %></p>
       </div>
       <div class="flex-item">
         <%= image_tag "arrow.png", class:"img-show-page-small" %>
       </div>
       <div class="flex-item">
-        <% c = ISO3166::Country.find_country_by_name(@trip.inbound_id.destination) %>
+        <% c = ISO3166::Country.find_country_by_name(flight.destination) %>
         <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-small">
-        <p><%= @trip.inbound_id.destination %></p>
+        <p><%= flight.destination %></p>
       </div>
     </div>
-    <div class="flexbox-panel">
-      <div class="flex-item">
-        <% c = ISO3166::Country.find_country_by_name(@trip.outbound_id.departure) %>
-        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-small">
-        <p><%= @flight.outbound_id.departure %></p>
-      </div>
-      <div class="flex-item">
-        <%= image_tag "arrow.png", class:"img-show-page-small" %>
-      </div>
-      <div class="flex-item">
-        <% c = ISO3166::Country.find_country_by_name(@flight.outbound_id.destination) %>
-        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-small">
-        <p><%= @flight.outbound_id.destination %></p>
-      </div>
-    </div>
+    <%= link_to "More info here", flight_path(flight) %>
   </div>
 </div>
+<% end %>
 <div class="nav-bar">
   <!-- nav-bar -->
 </div>
