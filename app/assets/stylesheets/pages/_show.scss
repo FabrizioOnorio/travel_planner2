@@ -38,14 +38,58 @@
   text-align: right;
 }
 
+.title {
+  font-family: Abhaya Libre;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.img-show-page-arrow-back {
+  transform: scaleX(-1);
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  border-radius: 5%;
+  margin: 0 auto;
+}
+
 .show-card{
   padding: 20px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.img-show-page-small {
-  width: 25px;
-  height: 25px;
+.img-show-page-flag-trips {
+  width: 43px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 40%;
+  margin: 0 auto;
+}
+
+.img-show-page-flag-flights {
+  width: 45px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 40%;
+  margin: 0 auto;
+}
+
+.img-show-page-arrow-flights {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  border-radius: 5%;
+  margin: 0 auto;
+}
+
+.img-show-page-arrow-trips {
+  width: 22px;
+  height: 22px;
   object-fit: cover;
   border-radius: 5%;
   margin: 0 auto;
@@ -74,6 +118,16 @@
 
 .container-show {
     margin: 5%;
-    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    box-shadow: 0px 0px 6px #9A9A9A;
     border-radius: 7px;
+}
+
+.header {
+  position: relative;
+  margin: 5%;
+  top: 10px;
+}
+
+.further_info {
+  margin-top: 30px;
 }

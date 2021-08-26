@@ -1,48 +1,32 @@
 <div class="header">
   <!-- title and stuff -->
+  <%= link_to trip_path do %>
+  <%= image_tag "arrow.png", class: "img-show-page-arrow-back"%>
+  <% end %>
+  <h1 class="title">Trip to <%=@flight.destination%></h1>
 </div>
 <div class="container-show">
   <div class="show-card">
     <!-- date only is hard coded-->
     <div class="date">
       <p><%=@flight.date%></p>
-      <%=  %>
     </div>
     <!-- flags and the name of the country -> change this to a flexbox-->
 
     <div class="flexbox-panel">
       <div class="flex-item">
         <% c = ISO3166::Country.find_country_by_name(@flight.departure) %>
-        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-small">
+        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
         <p><%= @flight.departure %></p>
       </div>
       <div class="flex-item">
-        <%= image_tag "arrow.png", class:"img-show-page-small" %>
+        <%= image_tag "arrow.png", class:"img-show-page-arrow-flights" %>
       </div>
       <div class="flex-item">
         <% c = ISO3166::Country.find_country_by_name(@flight.destination) %>
-        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-small">
+        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
         <p><%= @flight.destination %></p>
       </div>
-
-          <%# <div class="item_a">
-            <%= image_tag "Germany.png", class:"img-show-page-small" %>
-          <%# </div>
-          <div class="item_b">
-            <%= image_tag "arrow.png", class:"img-show-page-small" %>
-          <%# </div>
-          <div class="item_c">
-            <%= image_tag "Sweden.png", class:"img-show-page-small" %>
-          <%# </div> %>
-          <%# <div class="item_d">
-            <b>Germany</b>
-          <%# </div> %>
-          <%# <div class="item_e">
-
-          </div>
-          <div class="item_f">
-            <b>Sweden</b>
-          </div> %>
     </div>
     <!-- icons and the requirements (dashboard) e.g. quarantine -->
     <div class="icons_overview">
