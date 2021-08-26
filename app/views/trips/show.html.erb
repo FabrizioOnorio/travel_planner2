@@ -11,15 +11,15 @@
     <div class="flexbox-panel">
       <div class="flex-item">
         <% c = ISO3166::Country.find_country_by_name(flight.departure) %>
-        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-small">
+        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-trips">
         <p><%= flight.departure %></p>
       </div>
       <div class="flex-item">
-        <%= image_tag "arrow.png", class:"img-show-page-small" %>
+        <%= image_tag "arrow.png", class:"img-show-page-arrow-trips" %>
       </div>
       <div class="flex-item">
         <% c = ISO3166::Country.find_country_by_name(flight.destination) %>
-        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-small">
+        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-trips">
         <p><%= flight.destination %></p>
       </div>
     </div>
