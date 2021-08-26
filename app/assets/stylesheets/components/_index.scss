@@ -5,14 +5,41 @@
 
 body {
   background-color: white;
+
 }
 
 .cards {
   justify-content: center;
+  margin: 16px;
 }
 
 .card {
-  width: 345px;
+  width: 100%;
   height: 148px;
   border-radius: 10px;
+  margin-bottom: 16px;
+  box-shadow: 0px 0px 6px #888888;
+  display: flex;
+}
+
+.where {
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+.when {
+  margin-left: 16px;
+}
+
+.arrow-image {
+  width: 11px;
+  height: 18px;
+  position: relative;
+  left: 310px;
+  bottom: 32px;
+}
+
+.triangle-image {
+  width: 22px;
+  height: 24px;
 }
