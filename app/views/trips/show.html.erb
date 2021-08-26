@@ -4,8 +4,11 @@
   <div class="show-card">
     <!-- date only is hard coded-->
     <div class="date">
-      <p><%=flight.date%></p>
-      <%=  %>
+
+      <% @trip.flights.each do |flight| %>
+      <p><%= flight.date %></p>
+      <% end %>
+
     </div>
     <!-- flags and the name of the country -> change this to a flexbox-->
     <div class="flexbox-panel">

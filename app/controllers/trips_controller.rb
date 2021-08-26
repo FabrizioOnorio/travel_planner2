@@ -9,13 +9,11 @@ class TripsController < ApplicationController
   end
 
   def create
-    @flight = Flight.new(flight_params)
-    @trip = Trip.new(trips_params)
-    @trip.user = current_user
+    @trip = Trip.new(user: current_user)
     if @trip.save
-      redirect_to @flight, notice: 'Flight was successfully created'
+      redirect_to new_trip_trip_flight_path(@trip), notice: 'Trip was successfully created'
     else
-      render :new
+      render "/"
     end
   end
 

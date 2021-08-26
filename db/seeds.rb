@@ -150,19 +150,39 @@ TripFlight.create(
   trip: trip_1, flight: flight_1, flight_type: "outbound"
 )
 TripFlight.create(
-  trip: trip_1, flight: flight_2, flight_type: "outbound"
+
+  trip: trip_1, flight: flight_2, flight_type: "inbound"
+
 )
 # trip_2
 trip_2 = Trip.create(
   user: user_2
 )
+TripFlight.create(
+  trip: trip_2, flight: flight_3, flight_type: "outbound"
+)
+TripFlight.create(
+  trip: trip_2, flight: flight_4, flight_type: "inbound"
+)
 # trip_3
 trip_3 = Trip.create(
   user: user_3
 )
+TripFlight.create(
+  trip: trip_3, flight: flight_5, flight_type: "outbound"
+)
+TripFlight.create(
+  trip: trip_3, flight: flight_6, flight_type: "inbound"
+)
 # trip_4
 trip_4 = Trip.create(
   user: user_4
+)
+TripFlight.create(
+  trip: trip_4, flight: flight_7, flight_type: "outbound"
+)
+TripFlight.create(
+  trip: trip_4, flight: flight_8, flight_type: "inbound"
 )
 puts "done creating trips ✅"
 puts "done with the seeds ✅✅✅"
