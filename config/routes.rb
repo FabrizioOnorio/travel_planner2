@@ -7,12 +7,8 @@ Rails.application.routes.draw do
   resources :trips, only: [:index, :show, :new, :create]
   resources :flights, only: [:create, :new]
 
-  get 'profile', to: 'pages#profile'
+  get 'profile', to: 'profile#profile'
   resources :flights, only: [:create, :new, :show, :index]
-
-
-
-
 
 
 end
