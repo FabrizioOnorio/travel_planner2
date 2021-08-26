@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_142154) do
+ActiveRecord::Schema.define(version: 2021_08_26_100942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,14 +49,20 @@ ActiveRecord::Schema.define(version: 2021_08_25_142154) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "trip_flights", force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.bigint "flight_id", null: false
+    t.string "flight_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flight_id"], name: "index_trip_flights_on_flight_id"
+    t.index ["trip_id"], name: "index_trip_flights_on_trip_id"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "inbound_id"
-    t.bigint "outbound_id"
-    t.index ["inbound_id"], name: "index_trips_on_inbound_id"
-    t.index ["outbound_id"], name: "index_trips_on_outbound_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -77,7 +83,7 @@ ActiveRecord::Schema.define(version: 2021_08_25_142154) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "trips", "flights", column: "inbound_id"
-  add_foreign_key "trips", "flights", column: "outbound_id"
+  add_foreign_key "trip_flights", "flights"
+  add_foreign_key "trip_flights", "trips"
   add_foreign_key "trips", "users"
 end
