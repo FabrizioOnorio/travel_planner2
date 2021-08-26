@@ -2,8 +2,11 @@
 <div class="cards">
   <% @trips.each do |t| %>
   <div class="card">
-    <%= "Trip to #{}" %>
-    <%=  %>
+    <p class="where"><%= "Trip to Sweden" %></p>
+    <p class="when"><%= "25.08.2021 - 25.08.2021" %></p>
+      <%= image_tag("index-arrow.jpg", class:"arrow-image") %>
+      <%= image_tag("triangle-index.png", class:"triangle-image") %>
+      <%= image_tag("triangle-index.png", class:"triangle-image") %>
   </div>
   <% end %>
 </div>

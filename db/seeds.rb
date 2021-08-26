@@ -49,7 +49,7 @@ user_4 = User.create(
 puts "done with users ✅"
 puts "create flights"
 # flight_1
-flight_1 = Flight.create(
+flight_1 = Flight.create!(
   date: DateTime.new(2009, 9, 19),
   departure: "Italy",
   destination: "Spain",
@@ -60,7 +60,8 @@ flight_1 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_2
-flight_2 = Flight.create(
+puts "test"
+flight_2 = Flight.create!(
   date: DateTime.new(2009, 9, 20),
   departure: "Spain",
   destination: "Italy",
@@ -71,7 +72,7 @@ flight_2 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_3
-flight_3 = Flight.create(
+flight_3 = Flight.create!(
   date: DateTime.new(2009, 9, 15),
   departure: "Germany",
   destination: "France",
@@ -82,7 +83,7 @@ flight_3 = Flight.create(
   vaccination_requirment: "Half Vaccinated"
 )
 # flight_4
-flight_4 = Flight.create(
+flight_4 = Flight.create!(
   date: DateTime.new(2009, 9, 25),
   departure: "France",
   destination: "Germany",
@@ -93,7 +94,7 @@ flight_4 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_5
-flight_5 = Flight.create(
+flight_5 = Flight.create!(
   date: DateTime.new(2009, 9, 18),
   departure: "Norway",
   destination: "Belgium",
@@ -104,7 +105,7 @@ flight_5 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_6
-flight_6 = Flight.create(
+flight_6 = Flight.create!(
   date: DateTime.new(2009, 9, 30),
   departure: "Belgium",
   destination: "Norway",
@@ -115,7 +116,7 @@ flight_6 = Flight.create(
   vaccination_requirment: "Fully Vaccinated"
 )
 # flight_7
-flight_7 = Flight.create(
+flight_7 = Flight.create!(
   date: DateTime.new(2009, 9, 19),
   departure: "United Kingdom",
   destination: "Portugal",
@@ -126,7 +127,7 @@ flight_7 = Flight.create(
   vaccination_requirment: "Partly Vaccinated"
 )
 # flight_8
-flight_8 = Flight.create(
+flight_8 = Flight.create!(
   date: DateTime.new(2009, 9, 19),
   departure: "Portugal",
   destination: "United Kingdom",

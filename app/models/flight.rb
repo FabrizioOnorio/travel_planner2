@@ -1,6 +1,6 @@
 class Flight < ApplicationRecord
   attr_accessor :return_date
-  
-  belongs_to :inbound, class_name: "Trip"
-  belongs_to :outbound, class_name: "Trip"
+
+  has_many :trips_as_inbound, class_name: "Trip", foreign_key: :inbound_id
+  has_many :trips_as_outbound, class_name: "Trip", foreign_key: :outbound_id
 end
