@@ -140,7 +140,6 @@ flight_8 = Flight.create(
 puts "done withg flights ✅"
 puts "create trips"
 # trip_1
-binding.pry
 trip_1 = Trip.create(
   user: user_1
 )
