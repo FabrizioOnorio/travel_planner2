@@ -5,6 +5,8 @@
       <%= simple_form_for [@trip, @trip_flight] do |f| %>
       <%= f.input :flight, collection: Flight.all, input_html: { multiple: true, class: 'multiple-select' }, include_hidden: false %>
       <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select %>
+      <%= f.input :flight, collection: Flight.all, input_html: { multiple: true, class: 'multiple-select' }, include_hidden: false %>
+      <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select %>
       <%= f.submit "Add flight", class: 'btn btn-primary' %>
       <% end %>
     </div>
