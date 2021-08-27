@@ -1,12 +1,22 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
+
+  <h1>New trip</h1>
+  <%= link_to 'Cancel', root_path,  class: "cancel-link" %>
+      <div class="top-mark">
+      <svg width="148" height="26" viewBox="0 0 148 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="3" y1="13.5" x2="137" y2="13.5" stroke="#C4C4C4" stroke-width="7"/>
+      <circle cx="13" cy="13" r="13" fill="#C4C4C4"/>
+      <circle cx="135" cy="13" r="13" fill="#C4C4C4"/>
+      <circle cx="13" cy="13" r="10" fill="#23786B"/>
+      </svg>
+    </div>
+
+      <div class="form">
 
       <%= simple_form_for [@trip, @trip_flight] do |f| %>
-      <%= f.input :flight, collection: Flight.all, input_html: { multiple: true, class: 'multiple-select' }, include_hidden: false %>
-      <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select %>
-      <%= f.submit "Add flight", class: 'btn btn-primary' %>
+      <%= f.input :flight, collection: Flight.all, input_html: { multiple: true, class: 'multiple-select input-style' }, label_html: { class: "nice-class" } , include_hidden: false, label_method: :to_label %>
+      <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select, input_html: { class: "input-style" }, label_html: { class: "nice-class" } %>
+      <%= f.submit "Add flight", class: 'flight-submit' %>
       <% end %>
     </div>
   </div>
-</div>
