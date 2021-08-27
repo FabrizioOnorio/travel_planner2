@@ -4,7 +4,7 @@
     <%= link_to (trip_path(t)) do %>
       <div class="card">
         <p class="where"><%= "Trip to #{t.flights[0].destination}" %></p>
-        <p class="when"><%= "#{t.flights[0].date.strftime()} - #{t.flights[0].date}" %></p>
+        <p class="when"><%= "#{t.flights[0].date.strftime '%a %d/%m/%y'} - #{t.flights[0].date.strftime '%a %d/%m/%y'}" %></p>
         <div class="arrows">
           <div class="flags">
             <% c = ISO3166::Country.find_country_by_name("#{t.flights[0].departure}") %>
