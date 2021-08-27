@@ -59,7 +59,7 @@ html, body, .container{
     width: 100%;
     flex-shrink: 3;
     position: relative;
-    top: -80px;
+    top: -30px;
     margin-bottom: -80px;
 
 }
@@ -70,14 +70,16 @@ html, body, .container{
     justify-content: space-evenly;
     background-color: #23786B;
     font-size: 32px;
-    margin-top: 20px;
+    margin: 20px auto;
     padding: 5px 20px;
     border-radius: 10px;
     border: 2px solid white;
     text-decoration: none;
     color: white;
     font-weight: bolder;
-    width: 100%;
+    width: 95%;
+    position: fixed;
+    bottom: 60px;
 }
 
 .main-add-map:hover {
