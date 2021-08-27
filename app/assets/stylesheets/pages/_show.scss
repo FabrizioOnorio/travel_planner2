@@ -1,8 +1,8 @@
 
 .icons_overview {
   display: grid;
-  grid-template-columns: 0.8fr 1fr 5px 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 0.25fr 1fr 5px 0.25fr 1fr;
+    grid-template-rows: repeat(3, 0.5fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   padding-top: 30px;
@@ -19,6 +19,7 @@
   border-radius: 7px;
   padding: 4px;
   width: 100%;
+  text-align: center;
 }
 
 .img-show-page {
@@ -38,7 +39,15 @@
   text-align: right;
 }
 
-
+.title {
+  font-family: Abhaya Libre;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+  text-align: center;
+}
 .img-show-page-arrow-back {
   transform: scaleX(-1);
   width: 22px;
@@ -132,4 +141,9 @@
 .further_info {
   margin-top: 30px;
   padding-bottom: 80px;
+}
+
+.fas {
+  color: #2E4552;
+  font-size: 30px;
 }
