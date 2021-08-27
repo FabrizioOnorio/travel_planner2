@@ -96,7 +96,9 @@ html, body, .container{
     text-decoration: none;
     font-size: 24px;
     padding: 5px;
-    box-shadow: 0px 0px 10px #888888;
+    padding-top: 8px;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
 }
 .bottom-bar a {
     color: #2E4552;
