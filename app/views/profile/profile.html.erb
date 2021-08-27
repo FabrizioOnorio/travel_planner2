@@ -3,7 +3,7 @@
         <div id="upper-bar-main" id="home" >
           <p>Profile</p>
         </div>
-        <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill, class: "profile-img" %>
+        <%= cl_image_tag @user.photo.key , height: 300, width: 400, crop: :fill, class: "profile-img" if @user.photo.attached? %>
         <p class="username">@<%= @user.name %></p>
             <div class="user-info">
             <div class="inf">
