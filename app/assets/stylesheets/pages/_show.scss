@@ -124,7 +124,18 @@
 .header {
   position: relative;
   margin: 5%;
-  top: 10px;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 19px;
+  align-items: center;
+  text-align: center;
+  color: #2E4552;
+  font-family: 'Overpass', sans-serif;
 }
 
 .further_info {
