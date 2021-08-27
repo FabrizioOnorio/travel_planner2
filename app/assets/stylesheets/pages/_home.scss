@@ -34,12 +34,10 @@ html, body, .container{
 }
 
 
-
 .map-section {
     display: flex;
     color: #2E4552;
     text-align: center;
-    margin-top: 20px;
     flex-direction: column;
     height: 10%;
 }
@@ -140,6 +138,10 @@ html, body, .container{
     align-items: center;
     justify-content: space-between;
     margin-top: -15px;
+}
+
+.logo {
+  width: 200px;
 }
 
 
