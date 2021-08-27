@@ -38,6 +38,7 @@
   text-align: right;
 }
 
+<<<<<<< HEAD
 .title {
   font-family: Abhaya Libre;
   font-style: normal;
@@ -47,6 +48,8 @@
   align-items: center;
   text-align: center;
 }
+=======
+>>>>>>> 25358030261da01e0d636e22854d5686ef6670c6
 
 .img-show-page-arrow-back {
   transform: scaleX(-1);
@@ -124,7 +127,17 @@
 .header {
   position: relative;
   margin: 5%;
-  top: 10px;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 19px;
+  align-items: center;
+  text-align: center;
+  color: #2E4552;
 }
 
 .further_info {
