@@ -1,10 +1,9 @@
 <div class="container">
         <div class="profile">
         <div id="upper-bar-main" id="home" >
-          <p>Profile</p>
+          <p>@luke_wilkstan</p>
         </div>
-        <%= cl_image_tag @user.photo.key , height: 300, width: 400, crop: :fill, class: "profile-img" if @user.photo.attached? %>
-        <p class="username">@<%= @user.name %></p>
+        <img class="profile-img" src="https://i.pinimg.com/originals/d2/57/ef/d257ef22b46c7adb069354d31a9aace5.jpg" alt="Profile image">
             <div class="user-info">
             <div class="inf">
                 <p>Email</p>
