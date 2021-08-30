@@ -18,7 +18,7 @@ class FlightsController < ApplicationController
   end
 
   def show
-    @flight = Flight.find(params[:id])
+    @trip = Trip.find(params[:id])
   end
 
   private
