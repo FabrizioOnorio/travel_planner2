@@ -5,6 +5,7 @@
 <div class="container-show">
 
   <div class="show-card">
+
     <!-- flags and the name of the country -> change this to a flexbox-->
     <div class="flexbox-panel">
       <div class="flex-item">
@@ -14,6 +15,8 @@
       </div>
       <div class="flex-item">
         <%= image_tag "arrow.png", class:"img-show-page-arrow-trips" %>
+
+
       </div>
       <div class="flex-item">
         <% c = ISO3166::Country.find_country_by_name(@trip.destination) %>
@@ -21,7 +24,21 @@
         <p><%= @trip.destination %></p>
       </div>
     </div>
+
+
+
+
+      <div class="extra-infos">
+        <i class="fas fa-head-side-mask"></i>
+        <p class="font_text1"><%= @mask_required %></p>
+      </div>
+      <div class="extra-infos">
+        <i class="fas fa-vial"></i>
+        <p class="font_text1"><%= @test_type %></p>
+      </div>
+
     <%= link_to "More info here", flight_path(@trip) %>
+
   </div>
 </div>
 <div class="nav-bar">

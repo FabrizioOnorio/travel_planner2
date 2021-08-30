@@ -18,7 +18,29 @@ class FlightsController < ApplicationController
   end
 
   def show
+
     @trip = Trip.find(params[:id])
+
+   
+    # Initialize using parameters
+    amadeus = Amadeus::Client.new(client_id: ENV['AMADEUS_CLIENT_ID'], client_secret: ENV['AMADEUS_CLIENT_SECRET'])
+  #  https://test.api.amadeus.com/v1/duty-of-care/diseases/covid19-area-report?countryCode=US
+    c = ISO3166::Country.find_country_by_name(@trip.destination)
+    response = amadeus.get('/v1/duty-of-care/diseases/covid19-area-report', countryCode: c.alpha2)
+    @risk_level = response.data["diseaseRiskLevel"]
+    @infection_link = response.data["diseaseInfection"]["infectionMapLink"]
+    @source_link = response.data["dataSources"]["governmentSiteLink"]
+    @test_required = response.data["areaAccessRestriction"]["diseaseTesting"]["isRequired"]
+    @test_type = response.data["areaAccessRestriction"]["diseaseTesting"]["testType"]
+    @when_to_test = response.data["areaAccessRestriction"]["diseaseTesting"]["when"]
+    @test_more_infos = response.data["areaAccessRestriction"]["diseaseTesting"]["text"]
+    @quarantine_more_infos = response.data["areaAccessRestriction"]["quarantineModality"]["text"]
+    @mask_required = response.data["areaAccessRestriction"]["mask"]["isRequired"]
+    @exit_requirments = response.data["areaAccessRestriction"]["exit"]["text"]
+    @exit_rules_link = response.data["areaAccessRestriction"]["exit"]["rulesLink"]
+    @array_of_banned_countries = response.data["areaAccessRestriction"]["entry"]["bannedArea"]
+
+
   end
 
   private

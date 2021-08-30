@@ -28,78 +28,42 @@
     <!-- icons and the requirements (dashboard) e.g. quarantine -->
     <div class="icons_overview">
       <div class="box_a">
-        <%= image_tag "house.png", class:"img-show-page" %>
+        <%# <%= image_tag "house.png", class:"img-show-page" %>
+        <i class="fas fa-home"></i>
       </div>
       <div class="box_text">
-        <p class="font_text">10 days</p>
+        <p class="font_text">up to 14 days</p>
       </div>
       <div class="box-empty-1">
       </div>
-      <div class="box_b">
-        <%= image_tag "shopping.png", class:"img-show-page" %>
+     <div class="box_c">
+        <%# <%= image_tag "mask.png", class:"img-show-page" %>
+        <i class="fas fa-head-side-mask"></i>
       </div>
       <div class="box_text">
-        <p class="font_text">open</p>
-      </div>
-      <div class="box_c">
-        <%= image_tag "mask.png", class:"img-show-page" %>
-      </div>
-      <div class="box_text">
-        <p class="font_text">not required</p>
-      </div>
-      <div class="box-empty-1">
-      </div>
-      <div class="box_d">
-        <%= image_tag "meal.png", class:"img-show-page" %>
-      </div>
-      <div class="box_text">
-        <p class="font_text">open</p>
-      </div>
-      <div class="box_e">
-        <%= image_tag "test.png", class:"img-show-page" %>
-      </div>
-      <div class="box_text">
-        <p class="font_text">Anti-Gen required</p>
-      </div>
-      <div class="box-empty-1">
-      </div>
-      <div class="box_f">
-        <%= image_tag "club.png", class:"img-show-page" %>
-      </div>
-      <div class="box_text">
-        <p class="font_text">not open</p>
+        <p class="font_text"><%= @mask_required %></p>
       </div>
     </div>
+        <div class="box_e">
+          <i class="fas fa-vial"></i>
+        <div class="box_text">
+          <p class="font_text"><%= @test_type %></p>
+        </div>
+      </div>
     <!-- all the other information -->
     <div class="further_info">
-      <p>
-      1. Baggage Drop-off and Check in
-      The deadline for the check-in remains unchanged.
-      Hall A only.
-      2. Hygiene & Health Procedures
-      Protective equipment (i.e. mask) required as of entering the terminal.
-      No restrictions for accompanying partners at the airport.
-      No mandatory health checks or tests are performed at the terminal entrance.
-      Depends on rules due to origin or destination.
-      3. Time Management at Airport
-      No additional waiting time expected due to Covid-19 measures.
-      Floor markings to keep physical distance have been introduced.
-      4. Baggage Claim
-      Max. 2 piece of hand luggage incl. personal item are allowed at the security control.
-      Floor markings to keep physical distance have been introduced.
-      5. Boarding
-      For short & medium haul flights:
-      Please listen to the gate announcements and wait until your boarding group is called.
-      Use our automatic boarding gates for contactless boarding.
-      Please adhere to the social distancing requirements and follow the instructions from our gate team
-      For long haul flights:
-      Please listen to the gate announcements and follow the boarding instructions.
-      Use our automatic boarding gates for contactless boarding.
-      Please adhere to the social distancing requirements and follow the instructions from our gate team
-      6. Deboarding
-      Please adhere to the announcements and instruction from our cabin crew.
-      Consider your fellow passengers and maintain social distancing upon leaving the aircraft.
-      </p>
+
+      <ul>
+      <li><strong>Test required?</strong> <%= @test_required %> </li><br>
+      <li><strong>Test type:</strong> <%= @test_type %></li><br>
+      <li><strong>When do you have to take a test:</strong> <%= @when_to_test %></li><br>
+      <li><strong>Test type:</strong> <%= @test_type %></li><br>
+      <li><strong>Read more infos on the test:</strong> <%= @test_more_infos.html_safe %></li><br>
+      <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos.html_safe %></li><br>
+      <li><strong>Exit requirments:</strong><%= @exit_requirments.html_safe %> </li><br>
+      <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link}", @exit_rules_link %></li>
+      </ul>
+
     </div>
   </div>
 </div>

@@ -6,12 +6,12 @@
 
         <div class="map-section">
             <h1>Hello!</h1>
-            <p>Welcome to <strong>Traveld</strong>, We help you travel worry-free accross Europe, all you have to do is to enter your trip details to get all the needed information about the Corona restrictions through the visited countries </p>
+            <p>Welcome to <strong>Traveld</strong> We help you travel worry-free, enter your trip details to get all the needed information.</p>
             <img src="https://i.ibb.co/1rFDL7R/map.png" alt="World map">
         </div>
         <% if user_signed_in? %>
           <%= simple_form_for @trip do |f| %>
-          <%= f.button :submit, class: "main-add-map"%>
+          <%= f.button :submit, 'Where to?',  class: "main-add-map"%>
           <% end %>
         <% else %>
         <%= link_to "Sign in / Sign up", new_user_session_path, class: "main-add-map" %>
