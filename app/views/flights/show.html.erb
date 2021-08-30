@@ -32,62 +32,37 @@
         <i class="fas fa-home"></i>
       </div>
       <div class="box_text">
-        <p class="font_text">up to days</p>
+        <p class="font_text">up to 14 days</p>
       </div>
       <div class="box-empty-1">
       </div>
-      <div class="box_b">
-        <%# <%= image_tag "shopping.png", class:"img-show-page" %>
-        <i class="fas fa-shopping-cart"></i>
-      </div>
-      <div class="box_text">
-        <p class="font_text"><%= @risk_level %></p>
-      </div>
-      <div class="box_c">
+     <div class="box_c">
         <%# <%= image_tag "mask.png", class:"img-show-page" %>
         <i class="fas fa-head-side-mask"></i>
       </div>
       <div class="box_text">
         <p class="font_text"><%= @mask_required %></p>
       </div>
-      <div class="box-empty-1">
-      </div>
-      <div class="box_d">
-        <%# <%= image_tag "meal.png", class:"img-show-page" %>
-        <i class="fas fa-utensils"></i>
-      </div>
-      <div class="box_text">
-        <p class="font_text">open</p>
-      </div>
-      <div class="box_e">
-        <i class="fas fa-vial"></i>
-      </div>
-      <div class="box_text">
-        <p class="font_text"><%= @test_type %></p>
-      </div>
-      <div class="box-empty-1">
-      </div>
-      <div class="box_f">
-        <%# <%= image_tag "club.png", class:"img-show-page" %>
-        <i class="fas fa-cocktail"></i>
-      </div>
-      <div class="box_text">
-        <p class="font_text">not open</p>
-      </div>
     </div>
+        <div class="box_e">
+          <i class="fas fa-vial"></i>
+        <div class="box_text">
+          <p class="font_text"><%= @test_type %></p>
+        </div>
+      </div>
     <!-- all the other information -->
     <div class="further_info">
-<strong></strong>
-  <ul>
-  <li><strong>Test required?</strong> <%= @test_required %> </li><br>
-  <li><strong>Test type:</strong> <%= @test_type %></li><br>
-  <li><strong>When do you have to take a test:</strong> <%= @when_to_test %></li><br>
-  <li><strong>Test type:</strong> <%= @test_type %></li><br>
-  <li><strong>Read more infos on the test:</strong> <%= @test_more_infos %></li><br>
-  <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos %></li><br>
-  <li><strong>Exit requirments:</strong><%= @exit_requirments %> </li><br>
-  <li><strong>More infos on the exit rules:</strong> <%= @exit_rules_link %></li>
-  </ul>
+
+      <ul>
+      <li><strong>Test required?</strong> <%= @test_required %> </li><br>
+      <li><strong>Test type:</strong> <%= @test_type %></li><br>
+      <li><strong>When do you have to take a test:</strong> <%= @when_to_test %></li><br>
+      <li><strong>Test type:</strong> <%= @test_type %></li><br>
+      <li><strong>Read more infos on the test:</strong> <%= @test_more_infos.html_safe %></li><br>
+      <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos.html_safe %></li><br>
+      <li><strong>Exit requirments:</strong><%= @exit_requirments.html_safe %> </li><br>
+      <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link}", @exit_rules_link %></li>
+      </ul>
 
     </div>
   </div>
