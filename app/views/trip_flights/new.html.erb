@@ -13,7 +13,7 @@
 
       <%= simple_form_for [@trip, @trip_flight] do |f| %>
 
-      <%= f.input :flight, collection: Flight.all, input_html: { multiple: true, class: 'multiple-select input-style' }, label_html: { class: "nice-class" } , include_hidden: false, label_method: :to_label %>
+      <%= f.input :flight, collection: TripFlight::COUNTRY_LIST, input_html: { multiple: true, class: 'multiple-select input-style' }, label_html: { class: "nice-class" } , include_hidden: false %>
       <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select, input_html: { class: "input-style" }, label_html: { class: "nice-class" } %>
       <%= f.input :flight, collection: Flight.all, input_html: { multiple: true, class: 'multiple-select input-style' }, label_html: { class: "nice-class" } , include_hidden: false, label_method: :to_label %>
       <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select, input_html: { class: "input-style" }, label_html: { class: "nice-class" } %>
