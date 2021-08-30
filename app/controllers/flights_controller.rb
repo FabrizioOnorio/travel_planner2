@@ -22,7 +22,8 @@ class FlightsController < ApplicationController
     # Initialize using parameters
     amadeus = Amadeus::Client.new(client_id: ENV['AMADEUS_CLIENT_ID'], client_secret: ENV['AMADEUS_CLIENT_SECRET'])
   #  https://test.api.amadeus.com/v1/duty-of-care/diseases/covid19-area-report?countryCode=US
-    response = amadeus.get('/v1/duty-of-care/diseases/covid19-area-report', countryCode: 'IT')
+    c = ISO3166::Country.find_country_by_name(@flight.destination)
+    response = amadeus.get('/v1/duty-of-care/diseases/covid19-area-report', countryCode: c.alpha2)
     @risk_level = response.data["diseaseRiskLevel"]
     @infection_link = response.data["diseaseInfection"]["infectionMapLink"]
     @source_link = response.data["dataSources"]["governmentSiteLink"]

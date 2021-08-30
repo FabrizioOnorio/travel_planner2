@@ -10,7 +10,7 @@
     <div class="date">
 
       <% @trip.flights.each do |flight| %>
-  
+
       <% end %>
 
     </div>
@@ -23,6 +23,8 @@
       </div>
       <div class="flex-item">
         <%= image_tag "arrow.png", class:"img-show-page-arrow-trips" %>
+
+
       </div>
       <div class="flex-item">
         <% c = ISO3166::Country.find_country_by_name(flight.destination) %>
@@ -30,6 +32,16 @@
         <p><%= flight.destination %></p>
       </div>
     </div>
+
+      <div class="extra-infos">
+        <i class="fas fa-head-side-mask"></i>
+        <p class="font_text1"><%= @mask_required %></p>
+      </div>
+      <div class="extra-infos">
+        <i class="fas fa-vial"></i>
+        <p class="font_text1"><%= @test_type %></p>
+      </div>
+
     <%= link_to "More info here", flight_path(flight) %>
   </div>
 </div>
