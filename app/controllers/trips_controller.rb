@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
   end
 
   def new
@@ -29,37 +29,36 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     # Initialize using parameters
-    home_data = JSON.parse(@trip.home_json)
-    destination_data = JSON.parse(@trip.destination_json)
-    #requests for the card home
-    @risk_level_home = home_data["data"]["diseaseRiskLevel"]
-    @test_required_home = home_data["data"]["areaAccessRestriction"]["diseaseTesting"]["isRequired"]
-    @test_type_home = home_data["data"]["areaAccessRestriction"]["diseaseTesting"]["testType"]
-    @mask_required_home = home_data["data"]["areaAccessRestriction"]["mask"]["isRequired"]
-    #requests for the card home
-    @risk_level_destination = destination_data["data"]["diseaseRiskLevel"]
-    @test_required_destination = destination_data["data"]["areaAccessRestriction"]["diseaseTesting"]["isRequired"]
-    @test_type_destination = destination_data["data"]["areaAccessRestriction"]["diseaseTesting"]["testType"]
-    @mask_required_destination = destination_data["data"]["areaAccessRestriction"]["mask"]["isRequired"]
-    #requests for the modal home
-    @infection_link_home = home_data["data"]["diseaseInfection"]["infectionMapLink"]
-    @source_link_home = home_data["data"]["dataSources"]["governmentSiteLink"]
-    @when_to_test_home = home_data["data"]["areaAccessRestriction"]["diseaseTesting"]["when"]
-    @test_more_infos_home = home_data["data"]["areaAccessRestriction"]["diseaseTesting"]["text"]
-    @quarantine_more_infos_home = home_data["data"]["areaAccessRestriction"]["quarantineModality"]["text"]
-    @exit_requirments_home = home_data["data"]["areaAccessRestriction"]["exit"]["text"]
-    @exit_rules_link_home = home_data["data"]["areaAccessRestriction"]["exit"]["rulesLink"]
-    @array_of_banned_countries_home = home_data["data"]["areaAccessRestriction"]["entry"]["bannedArea"]
-
-    #requests for the modal destination
-    @infection_link_destination = destination_data["data"]["diseaseInfection"]["infectionMapLink"]
-    @source_link_destination = destination_data["data"]["dataSources"]["governmentSiteLink"]
-    @when_to_test_destination = destination_data["data"]["areaAccessRestriction"]["diseaseTesting"]["when"]
-    @test_more_infos_destination = destination_data["data"]["areaAccessRestriction"]["diseaseTesting"]["text"]
-    @quarantine_more_infos_destination = destination_data["data"]["areaAccessRestriction"]["quarantineModality"]["text"]
-    @exit_requirments_destination = destination_data["data"]["areaAccessRestriction"]["exit"]["text"]
-    @exit_rules_link_destination = destination_data["data"]["areaAccessRestriction"]["exit"]["rulesLink"]
-    @array_of_banned_countries_destination = destination_data["data"]["areaAccessRestriction"]["entry"]["bannedArea"]
+    unless @trip.home_json.nil?
+      home_data = JSON.parse(@trip.home_json)
+      @risk_level_home = home_data["data"]["diseaseRiskLevel"]
+      @test_required_home = home_data["data"]["areaAccessRestriction"]["diseaseTesting"]["isRequired"]
+      @test_type_home = home_data["data"]["areaAccessRestriction"]["diseaseTesting"]["testType"]
+      @mask_required_home = home_data["data"]["areaAccessRestriction"]["mask"]["isRequired"]
+      @infection_link_home = home_data["data"]["diseaseInfection"]["infectionMapLink"]
+      @source_link_home = home_data["data"]["dataSources"]["governmentSiteLink"]
+      @when_to_test_home = home_data["data"]["areaAccessRestriction"]["diseaseTesting"]["when"]
+      @test_more_infos_home = home_data["data"]["areaAccessRestriction"]["diseaseTesting"]["text"]
+      @quarantine_more_infos_home = home_data["data"]["areaAccessRestriction"]["quarantineModality"]["text"]
+      @exit_requirments_home = home_data["data"]["areaAccessRestriction"]["exit"]["text"]
+      @exit_rules_link_home = home_data["data"]["areaAccessRestriction"]["exit"]["rulesLink"]
+      @array_of_banned_countries_home = home_data["data"]["areaAccessRestriction"]["entry"]["bannedArea"]
+    end
+    unless @trip.destination_json.nil?
+      destination_data = JSON.parse(@trip.destination_json)
+      @risk_level_destination = destination_data["data"]["diseaseRiskLevel"]
+      @test_required_destination = destination_data["data"]["areaAccessRestriction"]["diseaseTesting"]["isRequired"]
+      @test_type_destination = destination_data["data"]["areaAccessRestriction"]["diseaseTesting"]["testType"]
+      @mask_required_destination = destination_data["data"]["areaAccessRestriction"]["mask"]["isRequired"]
+      @infection_link_destination = destination_data["data"]["diseaseInfection"]["infectionMapLink"]
+      @source_link_destination = destination_data["data"]["dataSources"]["governmentSiteLink"]
+      @when_to_test_destination = destination_data["data"]["areaAccessRestriction"]["diseaseTesting"]["when"]
+      @test_more_infos_destination = destination_data["data"]["areaAccessRestriction"]["diseaseTesting"]["text"]
+      @quarantine_more_infos_destination = destination_data["data"]["areaAccessRestriction"]["quarantineModality"]["text"]
+      @exit_requirments_destination = destination_data["data"]["areaAccessRestriction"]["exit"]["text"]
+      @exit_rules_link_destination = destination_data["data"]["areaAccessRestriction"]["exit"]["rulesLink"]
+      @array_of_banned_countries_destination = destination_data["data"]["areaAccessRestriction"]["entry"]["bannedArea"]
+    end
   end
 
   private
