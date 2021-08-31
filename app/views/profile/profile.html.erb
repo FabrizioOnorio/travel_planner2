@@ -22,7 +22,7 @@
                 <h3>Fully vaccinated</h3>
             </div>
         </div>
-    <%= link_to "Sign out", destroy_user_session_path, class: 'flight-submit' %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => 'delete', class: 'flight-submit' %>
     </div>
 
 </div>
