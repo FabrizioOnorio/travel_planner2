@@ -9,6 +9,15 @@
   text-align: center;
   padding-top: 56px;
 }
+
+.container-align-left {
+  text-align: left;
+}
+
+.ap-footer {
+  display: none;
+}
+
 .main-text {
   font-size: 16px;
   margin-top: -56px;
@@ -19,8 +28,6 @@ html, body, .container{
     margin:0;
     padding:0;
 }
-
-
 
 .content {
     font-family: 'Open Sans', sans-serif;
@@ -46,9 +53,6 @@ html, body, .container{
     margin-left: 10px;
     font-weight: bold;
     border-radius: 10px 10px 0px 10px;
-
-
-
 }
 
 
