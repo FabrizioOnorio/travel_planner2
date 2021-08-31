@@ -1,3 +1,19 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 55%;
+  width: 80%;
+  margin:0 auto;
+  color: #282828 !important;
+  text-align: center;
+  padding-top: 56px;
+}
+.main-text {
+  font-size: 16px;
+  margin-top: -56px;
+}
+
 html, body, .container{
     height: 100%;
     margin:0;
@@ -5,8 +21,9 @@ html, body, .container{
 }
 
 
+
 .content {
-    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: white;
     padding: 10px;
     padding-bottom: 80px;
@@ -67,19 +84,22 @@ html, body, .container{
 .main-add-map {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    background-color: #23786B;
-    font-size: 32px;
-    margin: 20px auto;
+    justify-content: space-between;
+    background-color: $brand;
+    font-size: 24px;
     padding: 5px 20px;
     border-radius: 10px;
-    border: 2px solid white;
     text-decoration: none;
     color: white;
-    font-weight: bolder;
-    width: 95%;
-    position: fixed;
-    bottom: 60px;
+    width: 100%;
+}
+.main-add-map p {
+  margin: 0;
+  font-size: 14px;
+}
+.decoration-none {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .main-add-map:hover {
@@ -101,21 +121,23 @@ html, body, .container{
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
 }
 .bottom-bar a {
-    color: #2E4552;
+    color: $brand !important;
 }
 
 .bottom-button p {
-    color: #2E4552;
+    color: $brand !important;
     font-size: 12px;
     font-weight: bolder;
     padding-top: 0;
     margin: 0;
 }
-.active {
-  color: #23786B!important;
-}
+
 .bottom-button {
     text-align: center;
+}
+
+.bottom-button i {
+  font-size: 2rem;
 }
 
 .upper-bar .logo-n-text p {

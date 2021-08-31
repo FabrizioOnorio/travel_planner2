@@ -1,22 +1,19 @@
-<div class="container">
-        <div class="content">
-        <div id="upper-bar-main" id="home">
-           <%= image_tag "Traveld-logo.png", class:"logo" %>
-        </div>
+<%= image_tag "airp.jpg", style: "width:100%; height: 300px; object-fit:cover;" %>
+<%# <img src="https://images.unsplash.com/photo-1510832303954-cc30cbf2b8db" style="width:100%; height: 300px; object-fit: cover;">%>
+<div class="main-container">
 
-        <div class="map-section">
-            <h1>Hello!</h1>
-            <p>Welcome to <strong>Traveld</strong> We help you travel worry-free, enter your trip details to get all the needed information.</p>
-            <img src="https://i.ibb.co/1rFDL7R/map.png" alt="World map">
-        </div>
-        <% if user_signed_in? %>
-        <%= link_to "Where to?", new_trip_path, class: "main-add-map" %>
-          <%#= simple_form_for @trip do |f| %>
-          <%#= f.button :submit, 'Where to?',  class: "main-add-map"%>
-          <%# end %>
-        <% else %>
-        <%= link_to "Sign in / Sign up", new_user_session_path, class: "main-add-map" %>
-        <% end %>
 
-        </div>
+  <h1>Discover <br>Covid-19 flight regulations</h1>
+  <p class="main-text">Stop stressing, start flying potato</p>
+  <% if user_signed_in? %>
+    <div class="main-add-map">
+      <%= link_to "Where to?", new_trip_path, class: "decoration-none" %>
+      <p>>></p>
+    </div>
+  <% else %>
+    <div class="main-add-map">
+      <%= link_to "Sign in / Sign up", new_user_session_path, class: "decoration-none" %>
+      <p>>></p>
+    </div>
+  <% end %>
 </div>
