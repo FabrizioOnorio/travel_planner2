@@ -1,7 +1,7 @@
 <div class="container">
         <div class="profile">
         <div id="upper-bar-main" id="home" >
-          <p>@<%= @user.name %></p>
+          <p><%= @user.name %></p>
         </div>
         <% if @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, class: "profile-img" %>
