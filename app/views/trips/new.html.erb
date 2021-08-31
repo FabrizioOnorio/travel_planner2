@@ -18,4 +18,9 @@
       <%= f.button :submit, 'Next', class:"button" %>
     <% end %>
   </div>
+
+  <div id="map"
+     style="width: 80%; height: 400px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
