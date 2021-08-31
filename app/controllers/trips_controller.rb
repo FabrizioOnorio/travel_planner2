@@ -6,16 +6,13 @@ class TripsController < ApplicationController
   def new
     @flight = Flight.new
     @trip = Trip.new
+
   end
 
   def create
     @trip = Trip.new(trips_params)
     @trip.user = current_user
-    # amadeus = Amadeus::Client.new(client_id: ENV['AMADEUS_CLIENT_ID'], client_secret: ENV['AMADEUS_CLIENT_SECRET'])
-    # destination_country = ISO3166::Country.find_country_by_name(@trip.destination)
-    # home_country = ISO3166::Country.find_country_by_name(@trip.home)
-    # destination_response = amadeus.get('/v1/duty-of-care/diseases/covid19-area-report', countryCode: destination_country.alpha2)
-    # home_response = amadeus.get('/v1/duty-of-care/diseases/covid19-area-report', countryCode: home_country.alpha2)
+
     @trip.home_json = api_call_for_country(@trip.home)
     @trip.destination_json = api_call_for_country(@trip.destination)
 
@@ -24,6 +21,7 @@ class TripsController < ApplicationController
     else
       render "new"
     end
+
   end
 
   def show
