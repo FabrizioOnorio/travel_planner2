@@ -1,9 +1,13 @@
 <div class="container">
         <div class="profile">
         <div id="upper-bar-main" id="home" >
-          <p>@luke_wilkstan</p>
+          <p>@<%= @user.name %></p>
         </div>
-        <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, class: "profile-img" %>
+        <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, class: "profile-img" %>
+          <% else %>
+            <img class= "profile-img" src="https://www.pngkey.com/png/full/157-1579943_no-profile-picture-round.png" alt="">
+          <% end %>
             <div class="user-info">
             <div class="inf">
                 <p>Email</p>
@@ -18,7 +22,6 @@
                 <h3>Fully vaccinated</h3>
             </div>
         </div>
-        <% raise %>
     <%= link_to "Sign out", destroy_user_session_path, class: 'flight-submit' %>
     </div>
 
