@@ -10,9 +10,10 @@
             <img src="https://i.ibb.co/1rFDL7R/map.png" alt="World map">
         </div>
         <% if user_signed_in? %>
-          <%= simple_form_for @trip do |f| %>
-          <%= f.button :submit, 'Where to?',  class: "main-add-map"%>
-          <% end %>
+        <%= link_to "Where to?", new_trip_path, class: "main-add-map" %>
+          <%#= simple_form_for @trip do |f| %>
+          <%#= f.button :submit, 'Where to?',  class: "main-add-map"%>
+          <%# end %>
         <% else %>
         <%= link_to "Sign in / Sign up", new_user_session_path, class: "main-add-map" %>
         <% end %>
