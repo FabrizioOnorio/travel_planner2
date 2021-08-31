@@ -1,9 +1,13 @@
 <div class="container">
         <div class="profile">
         <div id="upper-bar-main" id="home" >
-          <p>@luke_wilkstan</p>
+          <p>@<%= @user.name %></p>
         </div>
-        <img class="profile-img" src="https://i.pinimg.com/originals/d2/57/ef/d257ef22b46c7adb069354d31a9aace5.jpg" alt="Profile image">
+        <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, class: "profile-img" %>
+          <% else %>
+            <img class= "profile-img" src="https://www.pngkey.com/png/full/157-1579943_no-profile-picture-round.png" alt="">
+          <% end %>
             <div class="user-info">
             <div class="inf">
                 <p>Email</p>
@@ -18,16 +22,7 @@
                 <h3>Fully vaccinated</h3>
             </div>
         </div>
+    <%= link_to "Sign out", destroy_user_session_path, class: 'flight-submit' %>
     </div>
-    <div class="bottom-bar">
-        <div class="bottom-button"><a href="/"><i class="fas fa-home"></i></a>
-            <p class="active">Home</p>
-        </div>
-        <div class="bottom-button"><a href="/trips.html"><i class="fas fa-plane"></i></a>
-            <p>Trips</p>
-        </div>
-        <div class="bottom-button"><a href="/profile.html" class="active"><i class="fas fa-user-circle"></i></a>
-            <p>Profile</p>
-        </div>
-    </div>
+
 </div>
