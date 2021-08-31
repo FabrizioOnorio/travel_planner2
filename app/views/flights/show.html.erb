@@ -1,6 +1,6 @@
 <div class="header">
   <!-- title and stuff -->
-  <h1 class="title">Trip to <%=@flight.destination%></h1>
+  <h1 class="title">Trip to <%=@trip.destination%></h1>
 </div>
 <div class="container-show">
   <div class="show-card">
@@ -12,17 +12,17 @@
 
     <div class="flexbox-panel">
       <div class="flex-item">
-        <% c = ISO3166::Country.find_country_by_name(@flight.departure) %>
+        <% c = ISO3166::Country.find_country_by_name(@trip.home) %>
         <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
-        <p><%= @flight.departure %></p>
+        <p><%= @trip.home %></p>
       </div>
       <div class="flex-item">
         <%= image_tag "arrow.png", class:"img-show-page-arrow-flights" %>
       </div>
       <div class="flex-item">
-        <% c = ISO3166::Country.find_country_by_name(@flight.destination) %>
+        <% c = ISO3166::Country.find_country_by_name(@trip.destination) %>
         <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
-        <p><%= @flight.destination %></p>
+        <p><%= @trip.destination %></p>
       </div>
     </div>
     <!-- icons and the requirements (dashboard) e.g. quarantine -->

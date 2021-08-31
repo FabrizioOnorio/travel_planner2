@@ -9,11 +9,12 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(user: current_user)
+    @trip = Trip.new(trips_params)
+    @trip.user = current_user
     if @trip.save
-      redirect_to new_trip_trip_flight_path(@trip), notice: 'Trip was successfully created'
+      redirect_to trip_path(@trip), notice: 'Trip was successfully created'
     else
-      render "/"
+      render "new"
     end
   end
 
@@ -32,6 +33,6 @@ class TripsController < ApplicationController
 
   private
   def trips_params
-    params.require(:trip).permit(:inbound_id, :outbound_id, :user_id, :flight_id)
+    params.require(:trip).permit(:home, :destination)
   end
 end
