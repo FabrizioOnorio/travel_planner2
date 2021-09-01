@@ -16,7 +16,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <% @flight = results.find {|flight| flight["id"] == flight_instance.api_flight_id} %>
+      <% @flight = results.find {|flight| flight[:id].to_i == flight_instance.api_flight_id } %>
       <p><%= @flight[:departure_full] %></p>
       <p><%= @flight[:arrival_full]%></p>
       <p><%= @flight[:price] %></p>
