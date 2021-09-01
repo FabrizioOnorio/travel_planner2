@@ -6,13 +6,38 @@ class TripFlightsController < ApplicationController
 
   def create
     @trip = Trip.find(params[:trip_id])
-    @flights = Flight.find(params[:trip_flight][:flight])
-    @flights.each do |flight|
-      trip_flight = TripFlight.new
-      trip_flight.trip = @trip
-      trip_flight.flight = flight
-      trip_flight.save
-    end
-    redirect_to trip_path(@trip)
+    create_outbound
+    create_inbound
+    redirect_to trip_flights_path(@trip)
+  end
+
+  private
+
+  def create_outbound
+    flight = Flight.create(trip_flight_params.dig(:departure_flight))
+    trip_flight = TripFlight.new(trip: @trip, flight: flight, flight_type: "outbound")
+    trip_flight.save
+  end
+
+  def create_inbound
+    flight = Flight.create(trip_flight_params.dig(:return_flight))
+    trip_flight = TripFlight.new(trip: @trip, flight: flight, flight_type: "inbound")
+    trip_flight.save
+  end
+
+  def trip_flight_params
+    params.require(:trip_flight)
+    .permit(
+      return_flight: [
+        :departure,
+        :destination,
+        :date
+      ],
+      departure_flight: [
+        :departure,
+        :destination,
+        :date
+      ]
+    )
   end
 end

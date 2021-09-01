@@ -14,13 +14,22 @@
       <div class="form">
 
       <%= simple_form_for [@trip, @trip_flight] do |f| %>
-      <%= f.input :flight, label_html: { class: "flight-start" }, :input_html => {:onchange => "readURL(this)"} %>
-      <%# <%= f.input :flight, collection: TripFlight::COUNTRY_LIST, input_html: { multiple: true, class: 'multiple-select input-style' }, label_html: { class: "nice-class" } , include_hidden: false %>
-      <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select, input_html: { class: "input-style" }, label_html: { class: "nice-class" } %>
-      <%= f.input :flight, input_html: { class: "flight-destination" } %>
-      <%# <%= f.input :flight, collection: Flight.all, input_html: { multiple: true, class: 'multiple-select input-style' }, label_html: { class: "nice-class" } , include_hidden: false, label_method: :to_label %>
-      <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select, input_html: { class: "input-style" }, label_html: { class: "nice-class" } %>
 
+        <h3><%= @trip.home %> to <%= @trip.destination %></h3>
+        <hr>
+        <%= f.simple_fields_for :departure_flight do |flight| %>
+          <%= flight.input :departure, collection: Airports.all.select {|airport| airport.country == @trip.home}.sort_by(&:name), label_method: :name, value_method: :iata, input_html: { class: '' } %>
+          <%= flight.input :destination, collection: Airports.all.select {|airport| airport.country == @trip.destination}.sort_by(&:name), label_method: :name, value_method: :iata, input_html: { class: '' } %>
+          <%= flight.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <% end %>
+
+        <h3><%= @trip.destination %> to <%= @trip.home %></h3>
+        <hr>
+        <%= f.simple_fields_for :return_flight do |flight| %>
+          <%= flight.input :departure, collection: Airports.all.select {|airport| airport.country == @trip.destination}.sort_by(&:name), label_method: :name, value_method: :iata, input_html: { class: '' } %>
+          <%= flight.input :destination, collection: Airports.all.select {|airport| airport.country == @trip.home}.sort_by(&:name), label_method: :name, value_method: :iata, input_html: { class: '' } %>
+          <%= flight.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <% end %>
         <%= f.submit "Next", class: 'flight-submit' %>
 
       <% end %>
