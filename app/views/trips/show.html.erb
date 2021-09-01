@@ -4,12 +4,8 @@
 <!-- THIS <BR> IS A TEMPORARY SOLUTION -->
 <br>
 <div class="header">
-  <!-- title and stuff -->
-  <!-- <h1 class="title"> Trip to <%#=@trip.destination%> </h1> -->
-
+  <!-- SVG + ✈ + COUNTRY CODES start -->
   <div class="top-mark mt-6" style="position: relative;">
-    <!-- Put IATA code before and after the SVG -->
-    <!-- <p><%#= @trip.home %></p> -->
     <svg width="343" height="12" viewBox="0 0 343 12" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="337" cy="6" r="5.5" stroke="black"/>
     <circle cx="6" cy="6" r="5.5" stroke="black"/>
@@ -17,31 +13,19 @@
     </svg>
 
     <p style="position: absolute; top: -5px; left: 47%; color: #282828; background-color: #eaeeef; font-size: 24px;">✈</p>
-    <!-- Put IATA code before and after the SVG -->
-    <!-- <p><%#= @trip.destination %></p> -->
   </div>
-
   <div class="container-show d-flex justify-content-between" style="color: #282828; margin-top: -12px;">
     <h2><%= c.alpha3 %></h2>
     <h2><%= d.alpha3 %></h2>
   </div>
 </div>
+  <!-- SVG + ✈ + COUNTRY CODES end -->
 <div class="container-show">
-
   <div class="top-show-card">
     <p>Round Trip</p>
   </div>
-<!--   <div class="top-show-card">
-    <p>↗</p>
-
-  </div>
-  <div class="top-show-card">
-    <p>↘</p>
-  </div> -->
-
+  <!-- 1st TRIP CARD start -->
   <div class="show-card">
-
-    <!-- flags and the name of the country -> change this to a flexbox-->
     <div class="flexbox-panel">
       <div class="flex-item" id="align-left">
         <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-trips">
@@ -72,9 +56,10 @@
     </p>
   </div>
 </div>
+<!-- 1st TRIP CARD end -->
 
 
-<!-- Modal -->
+<!-- MODAL CARD 1 start -->
 <div class="modal fade" id="exampleModal1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
@@ -85,8 +70,9 @@
         </button>
       </div>
       <div class="modal-body">
-                   <!-- testing from here -->
-<div class="flexbox-panel">
+
+  <!-- MODAL 1 BODY start -->
+    <div class="flexbox-panel">
       <div class="flex-item" id="align-right">
         <% c = ISO3166::Country.find_country_by_name(@trip.home) %>
         <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
@@ -120,13 +106,13 @@
         <p class="font_text"><%= @mask_required_destination %></p>
       </div>
     </div>
-        <div class="box_e">
-          <i class="fas fa-vial"></i>
-        <div class="box_text">
-          <p class="font_text"><%= @test_type_destination %></p>
-        </div>
+    <div class="box_e">
+      <i class="fas fa-vial"></i>
+      <div class="box_text">
+        <p class="font_text"><%= @test_type_destination %></p>
       </div>
-      <ul>
+    </div>
+    <ul>
       <li><strong>Test required?</strong> <%= @test_required_destination %> </li><br>
       <li><strong>Test type:</strong> <%= @test_type_destination %></li><br>
       <li><strong>When do you have to take a test:</strong> <%= @when_to_test_destination %></li><br>
@@ -135,16 +121,16 @@
       <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_destination %></li><br>
       <li><strong>Exit requirments:</strong><%= @exit_requirments_destination %> </li><br>
       <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_destination}", @exit_rules_link_destination %></li>
-      </ul>
-  <!-- testing up to here -->
-      </div>
+    </ul>
+  </div>
+      <!-- MODAL BODY end -->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
       </div>
     </div>
   </div>
 </div>
+<!-- MODAL CARD 1 end -->
 
 <div class="container-show">
   <div class="show-card">
@@ -184,7 +170,8 @@
 
   </div>
 </div>
-<!-- Modal -->
+
+<!-- MODAL CARD 2 start -->
 <div class="modal fade" id="exampleModal2" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
@@ -195,64 +182,65 @@
         </button>
       </div>
       <div class="modal-body">
-                   <!-- testing from here -->
+<!-- MODAL CARD 2 BODY start -->
 <div class="flexbox-panel">
-      <div class="flex-item">
-        <% c = ISO3166::Country.find_country_by_name(@trip.home) %>
-        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
-        <p><%= @trip.home %></p>
-      </div>
-      <div class="flex-item">
-        <%= image_tag "arrow.png", class:"img-show-page-arrow-trips_way_back" %>
-      </div>
-      <div class="flex-item">
-        <% c = ISO3166::Country.find_country_by_name(@trip.destination) %>
-        <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
-        <p><%= @trip.destination %></p>
-      </div>
+  <div class="flex-item">
+    <% c = ISO3166::Country.find_country_by_name(@trip.home) %>
+    <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
+    <p><%= @trip.home %></p>
+  </div>
+  <div class="flex-item">
+    <%= image_tag "arrow.png", class:"img-show-page-arrow-trips_way_back" %>
+  </div>
+  <div class="flex-item">
+    <% c = ISO3166::Country.find_country_by_name(@trip.destination) %>
+    <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
+    <p><%= @trip.destination %></p>
+  </div>
+</div>
+  <!-- icons and the requirements (dashboard) e.g. quarantine -->
+  <div class="icons_overview">
+    <div class="box_a">
+      <%# <%= image_tag "house.png", class:"img-show-page" %>
+      <i class="fas fa-home"></i>
     </div>
-    <!-- icons and the requirements (dashboard) e.g. quarantine -->
-    <div class="icons_overview">
-      <div class="box_a">
-        <%# <%= image_tag "house.png", class:"img-show-page" %>
-        <i class="fas fa-home"></i>
-      </div>
-      <div class="box_text">
-        <p class="font_text">up to 14 days</p>
-      </div>
-      <div class="box-empty-1">
-      </div>
-     <div class="box_c">
-        <%# <%= image_tag "mask.png", class:"img-show-page" %>
-        <i class="fas fa-head-side-mask"></i>
-      </div>
-      <div class="box_text">
-        <p class="font_text"><%= @mask_required_home %></p>
-      </div>
+    <div class="box_text">
+      <p class="font_text">up to 14 days</p>
     </div>
-        <div class="box_e">
-          <i class="fas fa-vial"></i>
-        <div class="box_text">
-          <p class="font_text"><%= @test_type_home %></p>
-        </div>
-      </div>
-      <ul>
-      <li><strong>Test required?</strong> <%= @test_required_home %> </li><br>
-      <li><strong>Test type:</strong> <%= @test_type_home %></li><br>
-      <li><strong>When do you have to take a test:</strong> <%= @when_to_test_home %></li><br>
-      <li><strong>Test type:</strong> <%= @test_type %></li><br>
-      <li><strong>Read more infos on the test:</strong> <%= @test_more_infos_home %></li><br>
-      <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_home %></li><br>
-      <li><strong>Exit requirments:</strong><%= @exit_requirments_home %> </li><br>
-      <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home %></li>
-      </ul>
-  <!-- testing up to here -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+    <!-- possibly useless -->
+<!--     <div class="box-empty-1">
+    </div> -->
+    <div class="box_c">
+      <%# <%= image_tag "mask.png", class:"img-show-page" %>
+      <i class="fas fa-head-side-mask"></i>
+    </div>
+    <div class="box_text">
+      <p class="font_text"><%= @mask_required_home %></p>
     </div>
   </div>
+  <div class="box_e">
+    <i class="fas fa-vial"></i>
+    <div class="box_text">
+      <p class="font_text"><%= @test_type_home %></p>
+    </div>
+  </div>
+  <ul>
+    <li><strong>Test required?</strong> <%= @test_required_home %> </li><br>
+    <li><strong>Test type:</strong> <%= @test_type_home %></li><br>
+    <li><strong>When do you have to take a test:</strong> <%= @when_to_test_home %></li><br>
+    <li><strong>Test type:</strong> <%= @test_type %></li><br>
+    <li><strong>Read more infos on the test:</strong> <%= @test_more_infos_home %></li><br>
+    <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_home %></li><br>
+    <li><strong>Exit requirments:</strong><%= @exit_requirments_home %> </li><br>
+    <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home %></li>
+  </ul>
+</div>
+<!-- MODAL CARD 2 BODY end -->
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
 </div>
 <div class="nav-bar">
   <!-- nav-bar -->
