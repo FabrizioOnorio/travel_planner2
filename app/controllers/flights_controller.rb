@@ -8,8 +8,8 @@ class FlightsController < ApplicationController
 
 
     # only api call if flight number not present/ flight not yet booked
-    @outbound_flights = flights_data(@outbound) if @outbound.flight_number.nil?
-    @inbound_flights = flights_data(@inbound) if @inbound.flight_number.nil?
+    @outbound_flights = flights_data(@outbound)
+    @inbound_flights = flights_data(@inbound)
   end
 
   def new
@@ -27,6 +27,13 @@ class FlightsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @flight = Flight.find(params[:id])
+    @flight.update(flight_params)
+    @trip = Trip.find(params[:trip_id])
+    redirect_to trip_flights_path(@trip)
   end
 
   def show
@@ -56,11 +63,10 @@ class FlightsController < ApplicationController
   end
 
 
-
   private
 
   def flight_params
-    params.require(:flight).permit(:date, :departure, :destination, :flight_number)
+    params.require(:flight).permit(:date, :departure, :destination, :flight_number, :api_flight_id)
   end
 
 
@@ -81,7 +87,7 @@ class FlightsController < ApplicationController
         departure_time: set_flight_hour(flight_data, "departure"),
         arrival: set_airport_iata(flight_data, "arrival"),
         arrival_full: Airports.find_by_iata_code(set_airport_iata(flight_data, "arrival")).name,
-        arrival: set_flight_hour(flight_data, "arrival"),
+        arrival_time: set_flight_hour(flight_data, "arrival"),
         flight_number: set_flight_number(flight_data),
         price: set_price(flight_data)
       }

@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   resources :trips, only: [:index, :show, :new, :create] do
     resources :trip_flights, only: [:create, :new]
-    resources :flights, only: [:index]
+    resources :flights, only: [:index, :update]
   end
 
   get 'profile', to: 'profile#profile'
-  resources :flights, only: [:create, :new, :show, :update]
+  resources :flights, only: [:create, :new, :show]
 end
