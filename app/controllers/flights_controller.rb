@@ -78,21 +78,22 @@ class FlightsController < ApplicationController
     @results = JSON.parse(AMADEUS.shopping.flight_offers_search.get(originLocationCode: flight.departure, destinationLocationCode: flight.destination, departureDate: flight.date.strftime("%Y-%m-%d"), adults: 1, max: 20).body)
 
     @results["data"].map do |flight_data|
-
       {
         id: flight_data["id"],
         carrier: set_carrier(flight_data),
-        departure: set_airport_iata(flight_data, "departure"),
-        departure_full: Airports.find_by_iata_code(set_airport_iata(flight_data, "departure")).name,
+        departure: set_airport_departure_iata(flight_data, "departure"),
+        departure_full: Airports.find_by_iata_code(set_airport_departure_iata(flight_data, "departure")).name,
         departure_time: set_flight_hour(flight_data, "departure"),
-        arrival: set_airport_iata(flight_data, "arrival"),
-        arrival_full: Airports.find_by_iata_code(set_airport_iata(flight_data, "arrival")).name,
+        arrival: set_airport_arrival_iata(flight_data, "arrival"),
+        arrival_full: Airports.find_by_iata_code(set_airport_arrival_iata(flight_data, "arrival")).name,
         arrival_time: set_flight_hour(flight_data, "arrival"),
         flight_number: set_flight_number(flight_data),
         price: set_price(flight_data)
       }
     end
   end
+
+  # layovers are missing
 
   def set_price(flight_data)
     flight_data["price"]["total"]
@@ -111,7 +112,11 @@ class FlightsController < ApplicationController
     carriers[flight_data["itineraries"][0]["segments"][0]["carrierCode"]]
   end
 
-  def set_airport_iata(flight_data, airport_type)
+  def set_airport_departure_iata(flight_data, airport_type)
     flight_data["itineraries"][0]["segments"][0][airport_type]["iataCode"]
+  end
+
+  def set_airport_arrival_iata(flight_data, airport_type)
+    flight_data["itineraries"][0]["segments"][-1][airport_type]["iataCode"]
   end
 end
