@@ -58,6 +58,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airports (1.7.0)
     amadeus (5.2.0)
     autoprefixer-rails (10.2.5.0)
       execjs (< 2.8.0)
@@ -257,8 +258,10 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-darwin-20
 
 DEPENDENCIES
+  airports (~> 1.7.0)
   amadeus
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.2)
@@ -290,7 +293,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 2.7.3p183
 
 BUNDLED WITH
-   2.2.18
+   2.2.21
