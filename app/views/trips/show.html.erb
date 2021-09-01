@@ -1,8 +1,32 @@
-<div class="header">
+<div class="header pt-3">
   <!-- title and stuff -->
-  <h1 class="title"> Trip to <%=@trip.destination%> </h1>
+  <!-- <h1 class="title"> Trip to <%#=@trip.destination%> </h1> -->
+
+  <div class="top-mark mt-6">
+    <!-- Put IATA code before and after the SVG -->
+    <!-- <p><%#= @trip.home %></p> -->
+    <svg width="148" height="15" viewBox="0 0 148 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="3" y1="13.5" x2="137" y2="13.5" stroke="#C4C4C4" stroke-width="3"/>
+    <circle cx="13" cy="13" r="13" fill="#C4C4C4"/>
+    <circle cx="135" cy="13" r="13" fill="#C4C4C4"/>
+    <circle cx="13" cy="13" r="10" fill="#23786B"/>
+    </svg>
+    <!-- Put IATA code before and after the SVG -->
+    <!-- <p><%#= @trip.destination %></p> -->
+  </div>
 </div>
 <div class="container-show">
+
+  <div class="top-show-card">
+    <p>Round Trip</p>
+  </div>
+<!--   <div class="top-show-card">
+    <p>↗</p>
+
+  </div>
+  <div class="top-show-card">
+    <p>↘</p>
+  </div> -->
 
   <div class="show-card">
 
@@ -14,7 +38,7 @@
         <p><%= @trip.home %></p>
       </div>
       <div class="flex-item">
-        <%= image_tag "arrow.png", class:"img-show-page-arrow-trips" %>
+        <h3>🛫</h3>
       </div>
 
       <div class="flex-item">
@@ -34,9 +58,9 @@
 
 
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-  More infos here
-</button>
+    <p style="color: grey;" data-toggle="modal" data-target="#exampleModal1">
+      More infos
+    </p>
 
 
   </div>
@@ -126,7 +150,7 @@
         <p><%= @trip.home %></p>
       </div>
       <div class="flex-item">
-        <%= image_tag "arrow.png", class:"img-show-page-arrow-trips_way_back" %>
+        <h3 style="transform: scalex(-1);">🛫</h3>
 
 
       </div>
@@ -146,9 +170,9 @@
         <i class="fas fa-vial"></i>
         <p class="font_text1"><%= @test_type_home %></p>
       </div>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
-  More infos here
-</button>
+    <p style="color: grey;" data-toggle="modal" data-target="#exampleModal2">
+      More infos
+    </p>
 
 
   </div>
