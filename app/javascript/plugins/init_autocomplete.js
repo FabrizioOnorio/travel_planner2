@@ -8,6 +8,7 @@ const initAutocomplete = () => {
   if (countryInput) {
     countryInput.forEach((country) => {
       places({type: "country", container: country})
+     // places({ container: countryInput });
     })
   }
 };
