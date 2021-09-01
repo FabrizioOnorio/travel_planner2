@@ -15,7 +15,7 @@ const initMapbox = () => {
       const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${country}.json?types=country&access_token=${mapElement.dataset.mapboxApiKey}`
       fetch(url)
         .then((response) => response.json())
-        .then(data => console.log(data))
+        .then(data => console.log(data.features))
     });
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
