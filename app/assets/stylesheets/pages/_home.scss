@@ -179,6 +179,15 @@ html, body, .container{
   width: 200px;
 }
 
+.modal-dialog {
+  h5, p, li, i {
+    color: $brand
+  }
+}
+.btn-secondary {
+  background-color: $brand;
+  border: 0;
+}
 
 @keyframes fade {
     0%,100% { opacity: 0 }
