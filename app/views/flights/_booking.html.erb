@@ -1,22 +1,25 @@
 <div class="show-card">
+
     <% if flight_instance.flight_number.nil? %>
       <% results.each do |flight| %>
-        <hr>
-        <p><%= flight[:departure_full] %></p>
-        <p><%= flight[:arrival_full]%></p>
-        <p><%= flight[:price] %></p>
-        <p><%= flight[:departure_time] %></p>
-        <p><%= flight[:arrival_time] %></p>
-        <%= simple_form_for [@trip, flight_instance] do |f| %>
-          <%= f.input :flight_number, input_html: { value: flight[:flight_number] }, as: :hidden %>
-          <%= f.input :api_flight_id, input_html: { value: flight[:id] }, as: :hidden %>
-          <div class="main-add-map">
-            <%= f.button :submit, "book", class: "decoration-none"%>
-          </div>
-        <% end %>
+        <div class="top-show-card">
+          <hr>
+          <p><%= flight[:departure_full].gsub("Airport", "") %></p>
+          <p><%= flight[:arrival_full].gsub("Airport", "")%></p>
+          <p><%= flight[:price] %></p>
+          <p><%= flight[:departure_time] %></p>
+          <p><%= flight[:arrival_time] %></p>
+          <%= simple_form_for [@trip, flight_instance] do |f| %>
+            <%= f.input :flight_number, input_html: { value: flight[:flight_number] }, as: :hidden %>
+            <%= f.input :api_flight_id, input_html: { value: flight[:id] }, as: :hidden %>
+            <div class="main-add-map">
+              <%= f.button :submit, "book", class: "decoration-none"%>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     <% else %>
-      <% @flight = results.find {|flight| flight["id"] == flight_instance.api_flight_id} %>
+      <% @flight = results.find {|flight| flight[:id].to_i == flight_instance.api_flight_id} %>
       <p><%= @flight[:departure_full] %></p>
       <p><%= @flight[:arrival_full]%></p>
       <p><%= @flight[:price] %></p>
