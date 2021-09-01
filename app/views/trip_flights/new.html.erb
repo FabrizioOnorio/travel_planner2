@@ -14,7 +14,7 @@
       <div class="form">
 
       <%= simple_form_for [@trip, @trip_flight] do |f| %>
-      <%= f.input :flight, label_html: { class: "flight-start" } %>
+      <%= f.input :flight, label_html: { class: "flight-start" }, :input_html => {:onchange => "readURL(this)"} %>
       <%# <%= f.input :flight, collection: TripFlight::COUNTRY_LIST, input_html: { multiple: true, class: 'multiple-select input-style' }, label_html: { class: "nice-class" } , include_hidden: false %>
       <%= f.input :flight_type, collection: ["outbound", "inbound", "transfer"], as: :select, input_html: { class: "input-style" }, label_html: { class: "nice-class" } %>
       <%= f.input :flight, input_html: { class: "flight-destination" } %>

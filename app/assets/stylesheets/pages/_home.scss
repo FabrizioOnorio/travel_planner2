@@ -3,7 +3,9 @@
   flex-direction: column;
   justify-content: space-between;
   height: 53%;
+
   width: 80%;
+
   margin:0 auto;
   color: #282828 !important;
   text-align: center;
@@ -110,6 +112,7 @@ html, body, .container{
   color: white;
 }
 .bottom-bar {
+
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -122,6 +125,7 @@ html, body, .container{
   padding: 5px;
   padding-top: 8px;
   border-radius: 12px 12px 0 0;
+
 }
 .bottom-bar a {
     color: $brand !important;
