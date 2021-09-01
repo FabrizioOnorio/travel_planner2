@@ -23,6 +23,7 @@
 <div class="container-show">
   <div class="top-show-card">
     <p>Round Trip</p>
+    <%= link_to 'Search for flights', new_trip_trip_flight_path(@trip) %>
   </div>
   <!-- 1st TRIP CARD start -->
   <div class="show-card">
@@ -54,7 +55,6 @@
     <p style="color: grey; margin-top: 8px;" data-toggle="modal" data-target="#exampleModal1">
       More infos
     </p>
-    <%= link_to 'Search for flights', new_trip_trip_flight_path(@trip) %>
   </div>
 </div>
 <!-- 1st TRIP CARD end -->
