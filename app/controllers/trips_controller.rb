@@ -16,7 +16,7 @@ class TripsController < ApplicationController
     @trip.destination_json = api_call_for_country(@trip.destination)
 
     if @trip.save
-      redirect_to new_trip_trip_flight_path(@trip), notice: 'Trip was successfully created'
+      redirect_to trip_path(@trip), notice: 'Trip was successfully created'
     else
       render "new"
     end
