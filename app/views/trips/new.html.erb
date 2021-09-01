@@ -15,7 +15,7 @@
 
   <div class="form">
     <%= simple_form_for [ @trip ] do |f| %>
-      <%= f.input :home, label: false, input_html: { class: ["input-class", "algolia_search", "nice-class"], placeholder: "🛫 From" }%>
+      <%= f.input :home, label: false, input_html: { class: ["input-class", "algolia_search", "nice-class"], placeholder: "🛫 From", id: :home_input,  :input_html => {:onchange => "countryInfoMark()"} }%>
       <%= f.input :destination, label: false, input_html: { class: ["input-class", "algolia_search", "nice-class", "margin-killer"], placeholder: "🛬 To" } %>
       <div class="main-add-map">
         <%= f.button :submit, 'Next', class:"decoration-none" %>
