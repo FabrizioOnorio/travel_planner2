@@ -6,7 +6,6 @@ class TripsController < ApplicationController
   def new
     @flight = Flight.new
     @trip = Trip.new
-
   end
 
   def create

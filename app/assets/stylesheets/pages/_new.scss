@@ -2,8 +2,10 @@
   background-color: white;
 }
 
-#new-trip-map {
+#map {
+  z-index: -1;
   border-radius:50px 50px 0px 0px;
+  border: solid 1px lightgrey;
 }
 
 .form .button {
