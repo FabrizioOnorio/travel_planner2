@@ -72,7 +72,9 @@ class FlightsController < ApplicationController
     @results = JSON.parse(AMADEUS.shopping.flight_offers_search.get(originLocationCode: flight.departure, destinationLocationCode: flight.destination, departureDate: flight.date.strftime("%Y-%m-%d"), adults: 1, max: 20).body)
 
     @results["data"].map do |flight_data|
+
       {
+        id: flight_data["id"],
         carrier: set_carrier(flight_data),
         departure: set_airport_iata(flight_data, "departure"),
         departure_full: Airports.find_by_iata_code(set_airport_iata(flight_data, "departure")).name,
@@ -95,7 +97,7 @@ class FlightsController < ApplicationController
   end
 
   def set_flight_hour(flight_data, airport_type)
-    Date.parse(flight_data["itineraries"][0]["segments"][0][airport_type]["at"]).strftime("%l:%M %p")
+    DateTime.parse(flight_data["itineraries"][0]["segments"][0][airport_type]["at"]).strftime("%l:%M %p")
   end
 
   def set_carrier(flight_data)

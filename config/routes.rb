@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   end
 
   get 'profile', to: 'profile#profile'
-  resources :flights, only: [:create, :new, :show]
+  resources :flights, only: [:create, :new, :show, :update]
 end
