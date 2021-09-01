@@ -5,11 +5,14 @@
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   padding-top: 30px;
+  border-bottom: 1px solid lightgray;
 }
 
 .box_e {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 0px !important;
 }
 
 .font_text {
@@ -196,8 +199,5 @@ ul {
   // background-color: #83D644;
   padding: 2px;
   border-radius: 6px;
-}
-
-.box_e {
-  justify-content: space-between;
+  text-align: right;
 }
