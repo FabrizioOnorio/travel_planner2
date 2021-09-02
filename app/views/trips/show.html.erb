@@ -22,7 +22,7 @@
   <!-- SVG + ✈ + COUNTRY CODES end -->
 <div class="container-show">
   <div class="top-show-card">
-    <p>Round Trip</p>
+    <%= link_to 'Search for flights', new_trip_trip_flight_path(@trip), class: "search-for-flights" %>
   </div>
   <!-- 1st TRIP CARD start -->
   <div class="show-card">
@@ -35,7 +35,7 @@
         <h3>🛫</h3>
       </div>
 
-      <div class="flex-item" id="align-right">
+      <div class="flex-item" id="align-right" >
         <img src="https://www.countryflags.io/<%= d.alpha2 %>/flat/64.png" class="img-show-page-flag-trips">
         <p><%= @trip.destination %></p>
       </div>
@@ -51,12 +51,9 @@
 
 
     <!-- Button trigger modal -->
-    <div class="card-bottom-links">
     <p style="color: grey; margin-top: 8px;" data-toggle="modal" data-target="#exampleModal1">
       More infos
     </p>
-    <%= link_to 'Search for flights', new_trip_trip_flight_path(@trip), class: "search-for-flights" %>
-    </div>
   </div>
 </div>
 <!-- 1st TRIP CARD end -->
@@ -76,45 +73,39 @@
 
   <!-- MODAL 1 BODY start -->
     <div class="flexbox-panel">
-      <div class="flex-item" id="align-right">
+      <div class="flex-item" id="align-left">
         <% c = ISO3166::Country.find_country_by_name(@trip.home) %>
         <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
         <p><%= @trip.home %></p>
       </div>
       <div class="flex-item">
-        <%= image_tag "arrow.png", class:"img-show-page-arrow-flights" %>
+        <h3>🛫</h3>
       </div>
-      <div class="flex-item" id="align-left">
+      <div class="flex-item" id="align-right">
         <% c = ISO3166::Country.find_country_by_name(@trip.destination) %>
         <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
         <p><%= @trip.destination %></p>
       </div>
     </div>
     <!-- icons and the requirements (dashboard) e.g. quarantine -->
-    <div class="icons_overview">
-      <div class="box_a">
-        <%# <%= image_tag "house.png", class:"img-show-page" %>
-        <i class="fas fa-home"></i>
-      </div>
-      <div class="box_text">
-        <p class="font_text1">up to 14 days</p>
-      </div>
-      <div class="box-empty-1">
-      </div>
-     <div class="box_c">
-        <%# <%= image_tag "mask.png", class:"img-show-page" %>
-        <i class="fas fa-head-side-mask"></i>
-      </div>
-      <div class="box_text">
-        <p class="font_text1"><%= @mask_required_destination %></p>
-      </div>
+
+    <div class="box_e">
+      <i class="fas fa-home"></i>
+      <p class="font_text1">up to 14 days</p>
     </div>
+
+    <div class="box_e">
+      <i class="fas fa-head-side-mask"></i>
+      <p class="font_text1"><%= @mask_required_destination %></p>
+    </div>
+
     <div class="box_e">
       <i class="fas fa-vial"></i>
-      <div class="box_text">
-        <p class="font_text1"><%= @test_type_destination %></p>
-      </div>
+      <p class="font_text1"><%= @test_type_destination %></p>
+
     </div>
+      <br>
+
     <ul>
       <li><strong>Test required?</strong> <%= @test_required_destination %> </li><br>
       <li><strong>Test type:</strong> <%= @test_type_destination %></li><br>
@@ -166,12 +157,10 @@
         <i class="fas fa-vial"></i>
         <p class="font_text1"><%= @test_type_home %></p>
       </div>
-    <div class="card-bottom-links">
     <p style="color: grey; margin-top: 8px;" data-toggle="modal" data-target="#exampleModal2">
       More infos
     </p>
-    <%= link_to 'Search for flights', new_trip_trip_flight_path(@trip), class: "search-for-flights" %>
-    </div>
+
 
 
   </div>
@@ -190,46 +179,37 @@
       <div class="modal-body">
 <!-- MODAL CARD 2 BODY start -->
 <div class="flexbox-panel">
-  <div class="flex-item">
+  <div class="flex-item" id="align-left">
     <% c = ISO3166::Country.find_country_by_name(@trip.home) %>
     <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
     <p><%= @trip.home %></p>
   </div>
   <div class="flex-item">
-    <%= image_tag "arrow.png", class:"img-show-page-arrow-trips_way_back" %>
+    <h3 style="transform: scalex(-1);">🛫</h3>
   </div>
-  <div class="flex-item">
+  <div class="flex-item" id="align-right">
     <% c = ISO3166::Country.find_country_by_name(@trip.destination) %>
     <img src="https://www.countryflags.io/<%= c.alpha2 %>/flat/64.png" class="img-show-page-flag-flights">
     <p><%= @trip.destination %></p>
   </div>
 </div>
   <!-- icons and the requirements (dashboard) e.g. quarantine -->
-  <div class="icons_overview">
-    <div class="box_a">
-      <%# <%= image_tag "house.png", class:"img-show-page" %>
+  <div class="box_e">
       <i class="fas fa-home"></i>
-    </div>
-    <div class="box_text">
       <p class="font_text1">up to 14 days</p>
     </div>
-    <!-- possibly useless -->
-<!--     <div class="box-empty-1">
-    </div> -->
-    <div class="box_c">
-      <%# <%= image_tag "mask.png", class:"img-show-page" %>
+
+    <div class="box_e">
       <i class="fas fa-head-side-mask"></i>
-    </div>
-    <div class="box_text">
       <p class="font_text1"><%= @mask_required_home %></p>
     </div>
-  </div>
-  <div class="box_e">
-    <i class="fas fa-vial"></i>
-    <div class="box_text">
+
+    <div class="box_e">
+      <i class="fas fa-vial"></i>
       <p class="font_text1"><%= @test_type_home %></p>
+
     </div>
-  </div>
+  <br>
   <ul>
     <li><strong>Test required?</strong> <%= @test_required_home %> </li><br>
     <li><strong>Test type:</strong> <%= @test_type_home %></li><br>
