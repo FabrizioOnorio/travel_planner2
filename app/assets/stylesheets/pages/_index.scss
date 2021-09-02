@@ -15,16 +15,16 @@
 
 .show-card-index{
   color: $brand;
-  padding: 20px;
+  padding: 0 20px;
   // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 8px;
+  margin-bottom: 0;
 }
 
 
 .container-show{
   h2 {
     color: black;
-    margin-bottom: -1.3rem;
   }
 }
 
@@ -35,6 +35,7 @@
      justify-content: space-between;
      align-items: center;
      align-content: center;
+     border-bottom: 1px solid lightgray;
   h5{
     margin-bottom: 0px;
   }
@@ -66,14 +67,39 @@
   text-align: right;
 }
 
+.flexbox-panel-booked {
+  align-items: flex-end;
+   display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     justify-content: space-between;
+     align-content: center;
+     margin-top: 16px;
+  h5{
+    margin-bottom: 0px;
+  }
+}
+
+.flex-item-right-booked{
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-items: flex-end;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+}
+
 
 .top-show-card-index{
   background: white;
   color: $brand;
   padding: 16px 20px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  margin-top: 15px;
+  border-radius: 14px;
+  // margin-bottom: 8px;
+  // margin-top: 8px;
   p {
     margin: 0;
   }
@@ -89,6 +115,8 @@
   bottom: 15px;
   margin-top: 30px;
 }
+
+
 
 .main-add-map-index-2{
   display: flex;
@@ -106,4 +134,31 @@
   input{
     font-weight: bold;
   }
+}
+
+.top-show-card-booked{
+  background: white;
+  color: $brand;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  p {
+    margin: 0;
+  }
+}
+
+.show-card-index-booked {
+  color: $brand;
+  padding: 20px 20px 0 20px;
+  // margin-bottom: -36px;
+  // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 8px;
+}
+
+.show-card-index-inbound {
+  color: $brand;
+  padding: 0 20px 20px 20px;
+  margin-bottom: 0;
+  // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 8px;
 }
