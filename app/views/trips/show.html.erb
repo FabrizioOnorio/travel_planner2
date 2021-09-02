@@ -111,14 +111,30 @@
       <br>
 
     <ul>
-      <li><strong>Test required?</strong> <%= @test_required_destination %> </li><br>
-      <li><strong>Test type:</strong> <%= @test_type_destination %></li><br>
-      <li><strong>When do you have to take a test:</strong> <%= @when_to_test_destination %></li><br>
-      <li><strong>Test type:</strong> <%= @test_type %></li><br>
-      <li><strong>Read more infos on the test:</strong> <%= @test_more_infos_destination.html_safe %></li><br>
-      <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_destination.html_safe %></li><br>
-      <li><strong>Exit requirments:</strong><%= @exit_requirments_destination.html_safe %> </li><br>
+      <% unless @test_required_destination.nil?  %>
+        <li><strong>Test required?</strong> <%= @test_required_destination %> </li><br>
+      <% end %>
+      <% unless @test_type_destination.nil?  %>
+        <li><strong>Test type:</strong> <%= @test_type_destination %></li><br>
+      <% end %>
+      <% unless @when_to_test_destination.nil? %>
+        <li><strong>When do you have to take a test:</strong> <%= @when_to_test_destination %></li><br>
+      <% end %>
+      <% unless @test_type.nil?  %>
+        <li><strong>Test type:</strong> <%= @test_type %></li><br>
+      <% end %>
+      <% unless @test_more_infos_destination.nil?  %>
+        <li><strong>Read more infos on the test:</strong> <%= @test_more_infos_destination.html_safe %></li><br>
+      <% end %>
+      <% unless @quarantine_more_infos_destination.nil?  %>
+        <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_destination.html_safe %></li><br>
+        <% end %>
+      <% unless @exit_requirments_destination.nil?  %>
+        <li><strong>Exit requirments:</strong><%= @exit_requirments_destination.html_safe %> </li><br>
+      <% end %>
+      <% unless @exit_rules_link_home.nil?  %>
       <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home, class: "link-exit-rules" %></li>
+      <% end %>
     </ul>
   </div>
       <!-- MODAL BODY end -->
@@ -215,14 +231,30 @@
     </div>
   <br>
   <ul>
-    <li><strong>Test required?</strong> <%= @test_required_home %> </li><br>
-    <li><strong>Test type:</strong> <%= @test_type_home %></li><br>
-    <li><strong>When do you have to take a test:</strong> <%= @when_to_test_home %></li><br>
-    <li><strong>Test type:</strong> <%= @test_type %></li><br>
-    <li><strong>Read more info on the test:</strong> <%= @test_more_infos_home.html_safe %></li><br>
-    <li><strong>Read more info on the quarantine:</strong> <%= @quarantine_more_infos_home.html_safe %></li><br>
-    <li><strong>Exit requirments:</strong><%= @exit_requirments_home.html_safe %> </li><br>
-    <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home, class: "link-exit-rules" %></li>
+    <% unless @test_required_home.nil? %>
+      <li><strong>Test required?</strong> <%= @test_required_home %> </li><br>
+    <% end %>
+    <% unless @test_type_home.nil? %>
+      <li><strong>Test type:</strong> <%= @test_type_home %></li><br>
+    <% end %>
+    <% unless @when_to_test_home.nil? %>
+      <li><strong>When do you have to take a test:</strong> <%= @when_to_test_home %></li><br>
+    <% end %>
+    <% unless @test_type.nil? %>
+      <li><strong>Test type:</strong> <%= @test_type %></li><br>
+    <% end %>
+    <% unless @test_more_infos_home.nil? %>
+      <li><strong>Read more info on the test:</strong> <%= @test_more_infos_home.html_safe %></li><br>
+    <% end %>
+    <% unless @quarantine_more_infos_home.nil? %>
+      <li><strong>Read more info on the quarantine:</strong> <%= @quarantine_more_infos_home.html_safe %></li><br>
+    <% end %>
+    <% unless @exit_requirments_home.nil? %>
+      <li><strong>Exit requirments:</strong><%= @exit_requirments_home.html_safe  %> </li><br>
+    <% end %>
+    <% unless @exit_rules_link_home.nil? %>
+      <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home, class: "link-exit-rules" %></li>
+    <% end %>
   </ul>
 </div>
 <!-- MODAL CARD 2 BODY end -->
