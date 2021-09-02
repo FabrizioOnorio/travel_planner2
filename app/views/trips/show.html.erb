@@ -111,9 +111,9 @@
       <li><strong>Test type:</strong> <%= @test_type_destination %></li><br>
       <li><strong>When do you have to take a test:</strong> <%= @when_to_test_destination %></li><br>
       <li><strong>Test type:</strong> <%= @test_type %></li><br>
-      <li><strong>Read more infos on the test:</strong> <%= @test_more_infos_destination %></li><br>
-      <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_destination %></li><br>
-      <li><strong>Exit requirments:</strong><%= @exit_requirments_destination %> </li><br>
+      <li><strong>Read more infos on the test:</strong> <%= @test_more_infos_destination.html_safe %></li><br>
+      <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_destination.html_safe %></li><br>
+      <li><strong>Exit requirments:</strong><%= @exit_requirments_destination.html_safe %> </li><br>
       <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home, class: "link-exit-rules" %></li>
     </ul>
   </div>
@@ -215,9 +215,9 @@
     <li><strong>Test type:</strong> <%= @test_type_home %></li><br>
     <li><strong>When do you have to take a test:</strong> <%= @when_to_test_home %></li><br>
     <li><strong>Test type:</strong> <%= @test_type %></li><br>
-    <li><strong>Read more infos on the test:</strong> <%= @test_more_infos_home %></li><br>
-    <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_home %></li><br>
-    <li><strong>Exit requirments:</strong><%= @exit_requirments_home %> </li><br>
+    <li><strong>Read more info on the test:</strong> <%= @test_more_infos_home.html_safe %></li><br>
+    <li><strong>Read more info on the quarantine:</strong> <%= @quarantine_more_infos_home.html_safe %></li><br>
+    <li><strong>Exit requirments:</strong><%= @exit_requirments_home.html_safe %> </li><br>
     <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home, class: "link-exit-rules" %></li>
   </ul>
 </div>
