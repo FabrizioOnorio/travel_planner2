@@ -23,7 +23,6 @@
 <div class="container-show">
   <div class="top-show-card">
     <p>Round Trip</p>
-    <%= link_to 'Search for flights', new_trip_trip_flight_path(@trip) %>
   </div>
   <!-- 1st TRIP CARD start -->
   <div class="show-card">
@@ -52,9 +51,12 @@
 
 
     <!-- Button trigger modal -->
+    <div class="card-bottom-links">
     <p style="color: grey; margin-top: 8px;" data-toggle="modal" data-target="#exampleModal1">
       More infos
     </p>
+    <%= link_to 'Search for flights', new_trip_trip_flight_path(@trip), class: "search-for-flights" %>
+    </div>
   </div>
 </div>
 <!-- 1st TRIP CARD end -->
@@ -121,7 +123,7 @@
       <li><strong>Read more infos on the test:</strong> <%= @test_more_infos_destination %></li><br>
       <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_destination %></li><br>
       <li><strong>Exit requirments:</strong><%= @exit_requirments_destination %> </li><br>
-      <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_destination}", @exit_rules_link_destination %></li>
+      <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home, class: "link-exit-rules" %></li>
     </ul>
   </div>
       <!-- MODAL BODY end -->
@@ -164,9 +166,12 @@
         <i class="fas fa-vial"></i>
         <p class="font_text1"><%= @test_type_home %></p>
       </div>
+    <div class="card-bottom-links">
     <p style="color: grey; margin-top: 8px;" data-toggle="modal" data-target="#exampleModal2">
       More infos
     </p>
+    <%= link_to 'Search for flights', new_trip_trip_flight_path(@trip), class: "search-for-flights" %>
+    </div>
 
 
   </div>
@@ -233,7 +238,7 @@
     <li><strong>Read more infos on the test:</strong> <%= @test_more_infos_home %></li><br>
     <li><strong>Read more infos on the quarantine:</strong> <%= @quarantine_more_infos_home %></li><br>
     <li><strong>Exit requirments:</strong><%= @exit_requirments_home %> </li><br>
-    <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home %></li>
+    <li><strong>More infos on the exit rules:</strong> <%= link_to "#{@exit_rules_link_home}", @exit_rules_link_home, class: "link-exit-rules" %></li>
   </ul>
 </div>
 <!-- MODAL CARD 2 BODY end -->

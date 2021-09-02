@@ -108,8 +108,20 @@ html, body, .container{
   color: #ffffff;
 }
 
+.search-for-flights {
+  color: grey;
+  margin-top: 8px;
+}
+.card-bottom-links {
+  display: flex;
+  justify-content: space-between;
+
+}
 .main-add-map:hover {
   color: white;
+}
+.link-exit-rules {
+  text-decoration: underline;
 }
 .bottom-bar {
 
@@ -125,6 +137,7 @@ html, body, .container{
   padding: 5px;
   padding-top: 8px;
   border-radius: 12px 12px 0 0;
+  z-index: 1;
 
 }
 .bottom-bar a {
