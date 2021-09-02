@@ -2,8 +2,17 @@
 @indbound_flights %>
 
 <div class="container-show">
+  <% if @outbound.flight_number && @inbound.flight_number  %>
+  <h2 class="show-card-index-booked">Your receipt</h2>
+  <div class="show-card-index-booked">
+    <div class="top-show-card-booked">
+      <%= link_to 'View my trip', trip_path(@trip), class: "search-for-flights" %>
+    </div>
+  </div>
+  <% else %>
   <h2> Outbound flights </h2>
+  <% end %>
   <%= render "booking", flight_instance: @outbound, results: @outbound_flights %>
-  <h2> Inbound flights </h2>
+  <% '<h2> Inbound flights </h2>'.html_safe if @inbound.flight_number.nil? %>
   <%= render "booking", flight_instance: @inbound, results: @inbound_flights %>
 </div>

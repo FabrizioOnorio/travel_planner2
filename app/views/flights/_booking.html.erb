@@ -15,7 +15,6 @@
 </div> %>
 
 <div class="show-card-index">
-
     <% if flight_instance.flight_number.nil? %>
       <% results.each do |flight| %>
       <div class="top-show-card-index">
@@ -69,11 +68,13 @@
     </div>
 
       <%# This is the flight time %>
-      <div class="flexbox-panel">
+      <div class="flexbox-panel-booked">
         <div class="flex-item-left">
+
+          <p><strong><%= @flight[:flight_number] %></strong></p>
           <p><%= @flight[:departure_time] %></p>
         </div>
-        <div class="flex-item-right">
+        <div class="flex-item-right-booked">
           <p><%= @flight[:arrival_time] %></p>
         </div>
       </div>
