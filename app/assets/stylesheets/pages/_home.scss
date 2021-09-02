@@ -201,6 +201,14 @@ html, body, .container{
   background-color: $brand;
   border: 0;
 }
+.modal-footer button {
+  width: 100%;
+}
+
+.modal-body ul {
+  padding-left: 10px;
+}
+
 
 @keyframes fade {
     0%,100% { opacity: 0 }
