@@ -1,5 +1,5 @@
 class FlightsController < ApplicationController
-  AMADEUS = Amadeus::Client.new(client_id: ENV['AMADEUS_CLIENT_ID'], client_secret: ENV['AMADEUS_CLIENT_SECRET'])
+  AMADEUS = Amadeus::Client.new(client_id: ENV['AMADEUS_CLIENT_ID'], client_secret: ENV['AMADEUS_CLIENT_SECRET'], hostname: Rails.env.production? ? :production : :test)
 
   def index
     @trip = Trip.find(params[:trip_id])
