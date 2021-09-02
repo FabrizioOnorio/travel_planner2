@@ -18,60 +18,65 @@
 
     <% if flight_instance.flight_number.nil? %>
       <% results.each do |flight| %>
-        <div class="top-show-card-index">
+      <div class="top-show-card-index">
+
+        <div class="flexbox-panel">
+          <h5><%= flight[:departure].gsub("Airport", "") %></h5>
           <div class="top-mark-index mt-6" style="position: relative;">
-            <svg width="200" height="12" viewBox="0 0 343 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="180" height="12" viewBox="0 0 343 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="337" cy="6" r="5.5" stroke="black"/>
             <circle cx="6" cy="6" r="5.5" stroke="black"/>
             <line x1="11" y1="5.5" x2="331" y2="5.5" stroke="black" stroke-opacity="0.46" stroke-dasharray="5 5"/>
             </svg>
             <p style="position: absolute; top: -5px; left: 47%; color: #282828; background-color: #eaeeef; font-size: 24px;">✈</p>
           </div>
+          <h5><%= flight[:arrival].gsub("Airport", "")%></h5>
+        </div>
           <hr>
           <div class="flexbox-panel">
             <div class="flex-item-left">
-              <p><%= flight[:departure_full].gsub("Airport", "") %></p>
               <p><%= flight[:departure_time] %></p>
             </div>
             <div class="flex-item-right">
-              <p><%= flight[:arrival_full].gsub("Airport", "")%></p>
               <p><%= flight[:arrival_time] %></p>
 
             </div>
           </div>
-          <p><%= flight[:price] %> €</p>
           <%= simple_form_for [@trip, flight_instance] do |f| %>
             <%= f.input :flight_number, input_html: { value: flight[:flight_number] }, as: :hidden %>
             <%= f.input :api_flight_id, input_html: { value: flight[:id] }, as: :hidden %>
-            <div class="main-add-map">
-              <%= f.button :submit, "book", class: "decoration-none"%>
+            <div class="main-add-map-index-2">
+              <%= f.button :submit, "Book for #{flight[:price]} €", class: "decoration-none"%>
             </div>
             <% end %>
         </div>
       <% end %>
     <% else %>
-
+    <% @flight = results.find {|flight| flight[:id].to_i == flight_instance.api_flight_id } %>
     <div class="top-show-card-index">
+
+    <div class="flexbox-panel">
+      <h5><%= @flight[:departure] %></h5>
       <div class="top-mark-index mt-6" style="position: relative;">
-        <svg width="200" height="12" viewBox="0 0 343 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="180" height="12" viewBox="0 0 343 12" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="337" cy="6" r="5.5" stroke="black"/>
         <circle cx="6" cy="6" r="5.5" stroke="black"/>
         <line x1="11" y1="5.5" x2="331" y2="5.5" stroke="black" stroke-opacity="0.46" stroke-dasharray="5 5"/>
         </svg>
         <p style="position: absolute; top: -5px; left: 47%; color: #282828; background-color: #eaeeef; font-size: 24px;">✈</p>
       </div>
-      <% @flight = results.find {|flight| flight[:id].to_i == flight_instance.api_flight_id } %>
+      <h5><%= @flight[:arrival]%></h5>
+    </div>
+
+      <%# This is the flight time %>
       <div class="flexbox-panel">
         <div class="flex-item-left">
-          <p><%= @flight[:departure_full] %></p>
           <p><%= @flight[:departure_time] %></p>
         </div>
         <div class="flex-item-right">
-          <p><%= @flight[:arrival_full]%></p>
           <p><%= @flight[:arrival_time] %></p>
         </div>
       </div>
-      <p><%= @flight[:price] %></p>
     </div>
     <% end %>
 </div>

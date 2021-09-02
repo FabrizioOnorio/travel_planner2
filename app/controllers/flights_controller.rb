@@ -37,10 +37,7 @@ class FlightsController < ApplicationController
   end
 
   def show
-
     @trip = Trip.find(params[:id])
-
-
     # Initialize using parameters
 
   #  https://test.api.amadeus.com/v1/duty-of-care/diseases/covid19-area-report?countryCode=US

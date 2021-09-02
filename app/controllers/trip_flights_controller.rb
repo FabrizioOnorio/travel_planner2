@@ -14,13 +14,19 @@ class TripFlightsController < ApplicationController
   private
 
   def create_outbound
-    flight = Flight.create(trip_flight_params.dig(:departure_flight))
+    flight = Flight.new(trip_flight_params.dig(:departure_flight))
+    flight.date = params[:trip_flight][:departure_flight][:departure_date]
+    flight.save!
     trip_flight = TripFlight.new(trip: @trip, flight: flight, flight_type: "outbound")
     trip_flight.save
   end
 
   def create_inbound
-    flight = Flight.create(trip_flight_params.dig(:return_flight))
+    flight = Flight.new
+    flight.date = params[:trip_flight][:departure_flight][:return_date]
+    flight.departure = params[:trip_flight][:departure_flight][:destination]
+    flight.destination = params[:trip_flight][:departure_flight][:departure]
+    flight.save!
     trip_flight = TripFlight.new(trip: @trip, flight: flight, flight_type: "inbound")
     trip_flight.save
   end
@@ -28,15 +34,9 @@ class TripFlightsController < ApplicationController
   def trip_flight_params
     params.require(:trip_flight)
     .permit(
-      return_flight: [
-        :departure,
-        :destination,
-        :date
-      ],
       departure_flight: [
         :departure,
-        :destination,
-        :date
+        :destination
       ]
     )
   end
