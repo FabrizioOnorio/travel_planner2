@@ -65,7 +65,7 @@ class TripsController < ApplicationController
   end
 
   def api_call_for_country(country)
-    amadeus = Amadeus::Client.new(client_id: ENV['AMADEUS_CLIENT_ID'], client_secret: ENV['AMADEUS_CLIENT_SECRET'])
+    amadeus = Amadeus::Client.new(client_id: ENV['AMADEUS_CLIENT_ID'], client_secret: ENV['AMADEUS_CLIENT_SECRET'], hostname: Rails.env.production? ? :production : :test)
     country_iso = ISO3166::Country.find_country_by_name(country)
     response = amadeus.get('/v1/duty-of-care/diseases/covid19-area-report', countryCode: country_iso.alpha2)
     response.to_json
