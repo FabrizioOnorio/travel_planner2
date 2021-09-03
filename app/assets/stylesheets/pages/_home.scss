@@ -12,6 +12,10 @@
   padding-top: 56px;
 }
 
+#home-page-container {
+  padding-top: 10px;
+}
+
 .container-align-left {
   text-align: left;
 }
@@ -22,7 +26,7 @@
 
 .main-text {
   font-size: 16px;
-  margin-top: -56px;
+  // margin-top: -56px;
 }
 
 html, body, .container{
@@ -135,7 +139,8 @@ html, body, .container{
   text-decoration: none;
   font-size: 24px;
   padding: 5px;
-  padding-top: 8px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   border-radius: 12px 12px 0 0;
   z-index: 1;
 
