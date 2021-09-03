@@ -22,7 +22,7 @@
   <!-- SVG + ✈ + COUNTRY CODES end -->
 <div class="container-show">
   <div class="top-show-card">
-    <% if @trip.flights %>
+    <% if @trip.flights.any? %>
       <%= link_to 'View my flights', trip_flights_path(@trip), class: "search-for-flights" %>
     <% else %>
       <%= link_to 'Search for flights', new_trip_trip_flight_path(@trip), class: "search-for-flights" %>
