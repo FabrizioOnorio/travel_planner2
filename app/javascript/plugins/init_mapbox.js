@@ -21,7 +21,8 @@ const initMapbox = () => {
     let locations = []
 
     const homeInput = document.getElementById('home_input');
-    homeInput.addEventListener("change", (event) => {
+    homeInput.addEventListener("blur", (event) => {
+      console.log(homeInput.value)
       console.log(event.target.value)
       const country = event.target.value
       const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${country}.json?types=country&access_token=${mapElement.dataset.mapboxApiKey}`
@@ -40,7 +41,7 @@ const initMapbox = () => {
     });
 
     const destinationInput = document.getElementById('destination_input');
-    destinationInput.addEventListener("change", (event) => {
+    destinationInput.addEventListener("blur", (event) => {
       console.log(event.target.value)
       const country = event.target.value
       const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${country}.json?types=country&access_token=${mapElement.dataset.mapboxApiKey}`
